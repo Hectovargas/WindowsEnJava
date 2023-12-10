@@ -1,4 +1,5 @@
 package zzztwita;
+
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -17,32 +18,34 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class twitter extends javax.swing.JInternalFrame {
- String pathSeleccionada="";
-   private RandomAccessFile file_Users;
+
+    String pathSeleccionada = "";
+    private RandomAccessFile file_Users;
+
     public twitter() {
         initComponents();
-        
+
         //Asignacion para que no se muestre el panel de registro al ejecutar
         registro.setVisible(false);
-        
+
         //Asignacion para que no se muestre el panel donde se muestran los twits
         pantallaInicio.setVisible(false);
-        
+
         //Asignacion para que no se muestre el panel donde se muestran los twits
         timeline.setVisible(false);
-        
+
         //Asignacion para que no se muestre el panel de editar perfil
         editPerfil.setVisible(false);
-        
+
         //Asignacion para que no se muestre el panel de editar perfil
         perfilUser.setVisible(false);
-        
+
         //Asignacion para que no se muestre el panel donde se muestran los twits
         showTwits.setVisible(false);
-        
+
         //Asignacion para que no se muestre el panel donde se muestran los twits
         hashtag.setVisible(false);
-        
+
         //Asignacion del tamaño del Panel donde se hace el inicio de sesion
         //Asignacion para que no se muestre el panel de inicio de sesion al ejecutar
         principalLogin.setVisible(true);
@@ -57,21 +60,19 @@ public class twitter extends javax.swing.JInternalFrame {
 //        } catch (IOException e) {
 //            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error en archivo Usuarios", JOptionPane.ERROR_MESSAGE);
 //        }
-
-
         try {
             file_Users = new RandomAccessFile("BDTWITEH/usuarios.twc", "rw");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error en archivo Usuarios", JOptionPane.ERROR_MESSAGE);
         }
-       
+
     }
-    
-    int edad,contadorGenero;
-    String genero="",usuarioLoggeado;
-    
+
+    int edad, contadorGenero;
+    String genero = "", usuarioLoggeado;
+
     Image image = new ImageIcon("src/images/userDefault0.png").getImage();
-    
+
     /**
      * This method is called from within the constructor to initialize the form
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,19 +117,24 @@ public class twitter extends javax.swing.JInternalFrame {
         contenido = new javax.swing.JPanel();
         perfilUser = new javax.swing.JPanel();
         fotoVerPerfil = new javax.swing.JLabel();
-        userVerPerfil = new javax.swing.JLabel();
-        labelSeguidos = new javax.swing.JLabel();
-        userVerPerfil3 = new javax.swing.JLabel();
-        userVerPerfil4 = new javax.swing.JLabel();
-        labelSeguidores = new javax.swing.JLabel();
-        volverBoton = new javax.swing.JButton();
-        unfollowBoton = new javax.swing.JButton();
-        followBoton = new javax.swing.JButton();
-        verTwitsEditar = new javax.swing.JButton();
-        seguidoONo = new javax.swing.JLabel();
         twitsVerPerfil = new javax.swing.JScrollPane();
         contenidoVerPerfil = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        followBoton = new javax.swing.JButton();
+        verTwitsEditar = new javax.swing.JButton();
+        unfollowBoton = new javax.swing.JButton();
+        volverBoton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel4 = new javax.swing.JPanel();
         nombreVerPerfil1 = new javax.swing.JLabel();
+        userVerPerfil = new javax.swing.JLabel();
+        userVerPerfil4 = new javax.swing.JLabel();
+        labelSeguidos = new javax.swing.JLabel();
+        userVerPerfil3 = new javax.swing.JLabel();
+        labelSeguidores = new javax.swing.JLabel();
+        seguidoONo = new javax.swing.JLabel();
+        userVerPerfil5 = new javax.swing.JLabel();
+        userVerPerfil6 = new javax.swing.JLabel();
         editPerfil = new javax.swing.JPanel();
         buscarTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -152,9 +158,6 @@ public class twitter extends javax.swing.JInternalFrame {
         FPinicio = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        canttwits = new javax.swing.JLabel();
-        cantSeguidores = new javax.swing.JLabel();
-        nombreUser = new javax.swing.JLabel();
         logOut = new javax.swing.JButton();
         botonHashTag = new javax.swing.JButton();
         botonTimeLine = new javax.swing.JButton();
@@ -162,9 +165,12 @@ public class twitter extends javax.swing.JInternalFrame {
         editPerfilBoton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cantSeguidos = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        canttwits = new javax.swing.JLabel();
+        cantSeguidos = new javax.swing.JLabel();
+        cantSeguidores = new javax.swing.JLabel();
+        nombreUser = new javax.swing.JLabel();
 
         setBorder(new javax.swing.border.MatteBorder(null));
         setClosable(true);
@@ -385,13 +391,23 @@ public class twitter extends javax.swing.JInternalFrame {
 
         getContentPane().add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
-        timeline.setBackground(new java.awt.Color(102, 204, 255));
+        timeline.setBackground(new java.awt.Color(0, 153, 204));
+        timeline.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
         timeline.setPreferredSize(new java.awt.Dimension(630, 580));
         timeline.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         twit.setBackground(new java.awt.Color(255, 255, 255));
         twit.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         twit.setForeground(new java.awt.Color(0, 0, 0));
+        twit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102)));
+        twit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                twitFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                twitFocusLost(evt);
+            }
+        });
         twit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 twitActionPerformed(evt);
@@ -408,23 +424,25 @@ public class twitter extends javax.swing.JInternalFrame {
         botonEnviar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         botonEnviar.setForeground(new java.awt.Color(204, 255, 255));
         botonEnviar.setText("Send");
+        botonEnviar.setBorder(new javax.swing.border.MatteBorder(null));
         botonEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEnviarActionPerformed(evt);
             }
         });
-        timeline.add(botonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 90, 40));
+        timeline.add(botonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 230, 40));
 
         showTwits.setBackground(new java.awt.Color(0, 102, 102));
 
         contenido.setBackground(new java.awt.Color(51, 204, 255));
+        contenido.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 204)));
         showTwits.setViewportView(contenido);
 
-        timeline.add(showTwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 610, 500));
+        timeline.add(showTwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 760, 560));
 
-        getContentPane().add(timeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 630, -1));
+        getContentPane().add(timeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 780, 640));
 
-        perfilUser.setBackground(new java.awt.Color(102, 204, 255));
+        perfilUser.setBackground(new java.awt.Color(0, 153, 255));
         perfilUser.setForeground(new java.awt.Color(255, 255, 255));
         perfilUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -432,78 +450,142 @@ public class twitter extends javax.swing.JInternalFrame {
         fotoVerPerfil.setText("Foto de Perfil");
         perfilUser.add(fotoVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 170));
 
-        userVerPerfil.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        userVerPerfil.setForeground(new java.awt.Color(255, 255, 255));
-        userVerPerfil.setText("Usuario");
-        perfilUser.add(userVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 330, 50));
+        contenidoVerPerfil.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 255, 204)));
+        twitsVerPerfil.setViewportView(contenidoVerPerfil);
 
-        labelSeguidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        labelSeguidos.setForeground(new java.awt.Color(255, 255, 255));
-        labelSeguidos.setText("cant");
-        perfilUser.add(labelSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 100, 30));
+        perfilUser.add(twitsVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 780, 300));
 
-        userVerPerfil3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        userVerPerfil3.setForeground(new java.awt.Color(255, 255, 255));
-        userVerPerfil3.setText("Seguidores");
-        perfilUser.add(userVerPerfil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 130, 50));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 250, 210)));
 
-        userVerPerfil4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        userVerPerfil4.setForeground(new java.awt.Color(255, 255, 255));
-        userVerPerfil4.setText("Seguidos");
-        perfilUser.add(userVerPerfil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 100, 50));
-
-        labelSeguidores.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        labelSeguidores.setForeground(new java.awt.Color(255, 255, 255));
-        labelSeguidores.setText("cant");
-        perfilUser.add(labelSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 80, 30));
-
-        volverBoton.setText("volver");
-        volverBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                volverBotonActionPerformed(evt);
-            }
-        });
-        perfilUser.add(volverBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, 130, 50));
-
-        unfollowBoton.setText("Unfollow");
-        unfollowBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unfollowBotonActionPerformed(evt);
-            }
-        });
-        perfilUser.add(unfollowBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 130, 50));
-
+        followBoton.setBackground(new java.awt.Color(51, 153, 255));
+        followBoton.setFont(new java.awt.Font("Microsoft Tai Le", 0, 18)); // NOI18N
+        followBoton.setForeground(new java.awt.Color(0, 0, 0));
         followBoton.setText("Follow");
+        followBoton.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 51)), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
         followBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 followBotonActionPerformed(evt);
             }
         });
-        perfilUser.add(followBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 130, 50));
 
+        verTwitsEditar.setBackground(new java.awt.Color(255, 255, 102));
+        verTwitsEditar.setFont(new java.awt.Font("Microsoft Tai Le", 0, 18)); // NOI18N
+        verTwitsEditar.setForeground(new java.awt.Color(0, 0, 0));
         verTwitsEditar.setText("ver twits");
+        verTwitsEditar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 51)), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
         verTwitsEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verTwitsEditarActionPerformed(evt);
             }
         });
-        perfilUser.add(verTwitsEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 130, 50));
 
-        seguidoONo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        seguidoONo.setForeground(new java.awt.Color(255, 255, 255));
-        seguidoONo.setText("Seguido?");
-        perfilUser.add(seguidoONo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 180, 40));
+        unfollowBoton.setBackground(new java.awt.Color(255, 51, 51));
+        unfollowBoton.setFont(new java.awt.Font("Microsoft Tai Le", 0, 18)); // NOI18N
+        unfollowBoton.setForeground(new java.awt.Color(0, 0, 0));
+        unfollowBoton.setText("Unfollow");
+        unfollowBoton.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 51)), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
+        unfollowBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unfollowBotonActionPerformed(evt);
+            }
+        });
 
-        twitsVerPerfil.setViewportView(contenidoVerPerfil);
+        volverBoton.setBackground(new java.awt.Color(255, 255, 51));
+        volverBoton.setFont(new java.awt.Font("Microsoft Tai Le", 0, 18)); // NOI18N
+        volverBoton.setForeground(new java.awt.Color(0, 0, 0));
+        volverBoton.setText("volver");
+        volverBoton.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(51, 0, 51)), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
+        volverBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverBotonActionPerformed(evt);
+            }
+        });
 
-        perfilUser.add(twitsVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 760, 300));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(followBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(unfollowBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(verTwitsEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(followBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(verTwitsEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unfollowBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(210, 210, 210))
+        );
 
-        nombreVerPerfil1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        perfilUser.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 460, 70));
+
+        jSeparator1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 153, 153)));
+        perfilUser.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 780, 10));
+
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 204)));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nombreVerPerfil1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         nombreVerPerfil1.setForeground(new java.awt.Color(255, 255, 255));
         nombreVerPerfil1.setText("Nombre de Usuario");
-        perfilUser.add(nombreVerPerfil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 310, 50));
+        jPanel4.add(nombreVerPerfil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 440, 30));
 
-        getContentPane().add(perfilUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 780, 540));
+        userVerPerfil.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        userVerPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        userVerPerfil.setText("Usuario");
+        jPanel4.add(userVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 440, 50));
+
+        userVerPerfil4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        userVerPerfil4.setForeground(new java.awt.Color(255, 255, 255));
+        userVerPerfil4.setText("Seguidos:");
+        jPanel4.add(userVerPerfil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 110, 40));
+
+        labelSeguidos.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        labelSeguidos.setForeground(new java.awt.Color(255, 255, 255));
+        labelSeguidos.setText("cant");
+        jPanel4.add(labelSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 440, 40));
+
+        userVerPerfil3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        userVerPerfil3.setForeground(new java.awt.Color(255, 255, 255));
+        userVerPerfil3.setText("Usuario:");
+        jPanel4.add(userVerPerfil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 50));
+
+        labelSeguidores.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        labelSeguidores.setForeground(new java.awt.Color(255, 255, 255));
+        labelSeguidores.setText("cant");
+        jPanel4.add(labelSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 440, 40));
+
+        seguidoONo.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        seguidoONo.setForeground(new java.awt.Color(255, 255, 255));
+        seguidoONo.setText("Seguido?");
+        jPanel4.add(seguidoONo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 180, 40));
+
+        userVerPerfil5.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        userVerPerfil5.setForeground(new java.awt.Color(255, 255, 255));
+        userVerPerfil5.setText("Seguidores:");
+        jPanel4.add(userVerPerfil5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 60));
+
+        userVerPerfil6.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        userVerPerfil6.setForeground(new java.awt.Color(255, 255, 255));
+        userVerPerfil6.setText("Nombre:");
+        jPanel4.add(userVerPerfil6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 130, 50));
+
+        perfilUser.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 590, 250));
+
+        getContentPane().add(perfilUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 780, 640));
 
         editPerfil.setBackground(new java.awt.Color(51, 204, 255));
         editPerfil.setPreferredSize(new java.awt.Dimension(630, 580));
@@ -552,7 +634,7 @@ public class twitter extends javax.swing.JInternalFrame {
         });
         editPerfil.add(volverEditPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 130, 30));
 
-        getContentPane().add(editPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, -1));
+        getContentPane().add(editPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 780, 640));
 
         interacciones.setBackground(new java.awt.Color(51, 204, 255));
         interacciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -562,7 +644,7 @@ public class twitter extends javax.swing.JInternalFrame {
         contentInteracciones.setBackground(new java.awt.Color(102, 204, 255));
         interaccionesText.setViewportView(contentInteracciones);
 
-        interacciones.add(interaccionesText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 620, 500));
+        interacciones.add(interaccionesText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 760, 500));
 
         userInteraccion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 60)); // NOI18N
         userInteraccion.setForeground(new java.awt.Color(255, 255, 255));
@@ -574,7 +656,7 @@ public class twitter extends javax.swing.JInternalFrame {
         jLabel4.setText("@");
         interacciones.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
-        getContentPane().add(interacciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, 579));
+        getContentPane().add(interacciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 780, 640));
 
         hashtag.setBackground(new java.awt.Color(51, 204, 255));
         hashtag.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -600,14 +682,14 @@ public class twitter extends javax.swing.JInternalFrame {
         content.setBackground(new java.awt.Color(102, 204, 255));
         hashText.setViewportView(content);
 
-        hashtag.add(hashText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 600, 480));
+        hashtag.add(hashText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 760, 550));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("#");
         hashtag.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 60));
 
-        getContentPane().add(hashtag, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 630, 580));
+        getContentPane().add(hashtag, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 780, 640));
 
         pantallaInicio.setBackground(new java.awt.Color(0, 153, 204));
         pantallaInicio.setMaximumSize(new java.awt.Dimension(1200, 680));
@@ -617,6 +699,7 @@ public class twitter extends javax.swing.JInternalFrame {
 
         FPinicio.setForeground(new java.awt.Color(255, 255, 255));
         FPinicio.setText("Foto de Perfil");
+        FPinicio.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 51)));
         pantallaInicio.add(FPinicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 190, 160));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -627,25 +710,9 @@ public class twitter extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Twitter");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 180, 40));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 190, 40));
 
         pantallaInicio.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 40));
-
-        canttwits.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
-        canttwits.setForeground(new java.awt.Color(255, 255, 255));
-        canttwits.setText("cant twits");
-        pantallaInicio.add(canttwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 110, 40));
-
-        cantSeguidores.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
-        cantSeguidores.setForeground(new java.awt.Color(255, 255, 255));
-        cantSeguidores.setText("num");
-        pantallaInicio.add(cantSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 70, 40));
-
-        nombreUser.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
-        nombreUser.setForeground(new java.awt.Color(255, 255, 255));
-        nombreUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nombreUser.setText("Usuario");
-        pantallaInicio.add(nombreUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 220, 40));
 
         logOut.setBackground(new java.awt.Color(51, 153, 255));
         logOut.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -695,6 +762,7 @@ public class twitter extends javax.swing.JInternalFrame {
         });
         pantallaInicio.add(botonInteracciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 190, 50));
 
+        editPerfilBoton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         editPerfilBoton.setText("Editar Perfil");
         editPerfilBoton.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 102)));
         editPerfilBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -704,22 +772,17 @@ public class twitter extends javax.swing.JInternalFrame {
         });
         pantallaInicio.add(editPerfilBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 190, 50));
 
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Twits");
         pantallaInicio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 70, 40));
 
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Seguidos");
         pantallaInicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 110, 40));
 
-        cantSeguidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
-        cantSeguidos.setForeground(new java.awt.Color(255, 255, 255));
-        cantSeguidos.setText("num");
-        pantallaInicio.add(cantSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 70, 40));
-
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Seguidores");
         pantallaInicio.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 130, 40));
@@ -727,6 +790,28 @@ public class twitter extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 255, 255)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        canttwits.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        canttwits.setForeground(new java.awt.Color(255, 255, 255));
+        canttwits.setText("cant twits");
+        jPanel2.add(canttwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 110, 40));
+
+        cantSeguidos.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        cantSeguidos.setForeground(new java.awt.Color(255, 255, 255));
+        cantSeguidos.setText("num");
+        jPanel2.add(cantSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 70, 40));
+
+        cantSeguidores.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        cantSeguidores.setForeground(new java.awt.Color(255, 255, 255));
+        cantSeguidores.setText("num");
+        jPanel2.add(cantSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 70, 40));
+
+        nombreUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
+        nombreUser.setForeground(new java.awt.Color(255, 255, 255));
+        nombreUser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nombreUser.setText("Usuario");
+        jPanel2.add(nombreUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 220, 40));
+
         pantallaInicio.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 350, 640));
 
         getContentPane().add(pantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
@@ -743,24 +828,28 @@ public class twitter extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_twitKeyPressed
 
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
-        String mensaje=twit.getText();
-        if(mensaje.length()>140){
+        String mensaje = twit.getText();
+        if(mensaje.isBlank()){
+            JOptionPane.showMessageDialog(this, "No puede enviar un mensaje vacio");
+            return;
+        }
+        if (mensaje.length() > 140) {
             JOptionPane.showMessageDialog(null, "Los twits pueden contener como maximo 140 caracteres!");
-        }else if(mensaje.length()>0){
+        } else if (mensaje.length() > 0) {
             try {
-                Usuario_Twitter temporal= new Usuario_Twitter(userTextField1.getText());
+                Usuario_Twitter temporal = new Usuario_Twitter(userTextField1.getText());
                 Usuario_Twitter user = new Usuario_Twitter(usuarioLoggeado);
                 user.guardarTwit(mensaje);
                 twit.setText("");
                 cargarTwits();
-                canttwits.setText(""+temporal.cantTwits());
+                canttwits.setText("" + temporal.cantTwits());
                 timeline.setVisible(false);
                 timeline.setVisible(true);
 
             } catch (ExcepcionPropia ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
-            } catch (IOException e){
-                JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage());
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage());
             }
 
         }
@@ -777,14 +866,14 @@ public class twitter extends javax.swing.JInternalFrame {
         }
 
         //Condicional que valida que todas las casillas esten llenas
-        if(nombreUsuarioText.getText().isEmpty() || contadorGenero<=0 || userTextField.getText().isEmpty() || contraTextField.getText().isEmpty() || edadTextField.getText().isEmpty()){
+        if (nombreUsuarioText.getText().isEmpty() || contadorGenero <= 0 || userTextField.getText().isEmpty() || contraTextField.getText().isEmpty() || edadTextField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Favor rellenar toda las casillas!");
-        }else{
-            try{
+        } else {
+            try {
                 System.out.println("0");
 
                 //Condicional que valida si el usuario existe
-                if(!Usuario_Twitter.usuarioExiste(userTextField.getText(), file_Users)){
+                if (!Usuario_Twitter.usuarioExiste(userTextField.getText(), file_Users)) {
                     System.out.println("1");
                     //Escribir los datos del registro en el archivo de usuarios
                     file_Users.seek(file_Users.length());
@@ -792,19 +881,19 @@ public class twitter extends javax.swing.JInternalFrame {
                     file_Users.writeChar(genero.charAt(0));
                     file_Users.writeUTF(nombreUsuarioText.getText());
                     file_Users.writeUTF(contraTextField.getText());
-System.out.println("2");
+                    System.out.println("2");
                     Date fecha = new Date();
                     file_Users.writeLong(fecha.getTime());
-System.out.println("3");
-                    edad=Integer.parseInt(edadTextField.getText());
+                    System.out.println("3");
+                    edad = Integer.parseInt(edadTextField.getText());
                     file_Users.writeInt(edad);
                     file_Users.writeBoolean(true);
-System.out.println("4");
-                    if(pathSeleccionada.equals("")){
-                        pathSeleccionada="src/images/userDefault0.png";
+                    System.out.println("4");
+                    if (pathSeleccionada.equals("")) {
+                        pathSeleccionada = "src/images/userDefault0.png";
                         file_Users.writeUTF(pathSeleccionada);
                         System.out.println("Entra en icono default");
-System.out.println("5");
+                        System.out.println("5");
                         //Carpeta donde se se guardaran los usuarios
                         File ruta_usuario = new File("BDTWITEH/" + userTextField.getText());
 
@@ -817,7 +906,7 @@ System.out.println("5");
                         File followers = new File(ruta_usuario.getPath() + "/followers.twc");
                         //Declaracion de los twits del usuario
                         File twits = new File(ruta_usuario.getPath() + "/twits.twc");
-System.out.println("6");
+                        System.out.println("6");
                         //Creacion del archivo seguidos
                         following.createNewFile();
                         //Creacion del archivo seguidores
@@ -831,8 +920,8 @@ System.out.println("6");
 
                         //Funcion que deja los textfields y mas valores en 0 o vacio
                         vaciarCasillas();
-System.out.println("7");
-                    }else{
+                        System.out.println("7");
+                    } else {
                         file_Users.writeUTF(pathSeleccionada);
                         System.out.println("entra a icono personalizado");
 
@@ -862,14 +951,14 @@ System.out.println("7");
                         principalLogin.setVisible(true);
                         registro.setVisible(false);
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Usuario ingresado ya existe");
                     //Funcion que deja los textfields y mas valores en 0 o vacio
                     vaciarCasillas();
 
                 }
-            }catch(IOException e){
-                JOptionPane.showMessageDialog(this, "Ha ocurrido un error: "+e.getMessage());
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error: " + e.getMessage());
             }
 
         }
@@ -896,39 +985,39 @@ System.out.println("7");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
-        try{
+        try {
             RandomAccessFile fu = new RandomAccessFile("BDTWITEH/usuarios.twc", "rw");
             System.out.println("entro 1");
-            if(Usuario_Twitter.usuarioExiste(userTextField1.getText(), fu)){
+            if (Usuario_Twitter.usuarioExiste(userTextField1.getText(), fu)) {
                 System.out.println("entro 1.3");
                 fu.readChar();
                 System.out.println("entro 1.4");
                 fu.readUTF();
-                 System.out.println("entro 2");
-                if(fu.readUTF().equals(contraTextField1.getText())){
-                    Usuario_Twitter temporal= new Usuario_Twitter(userTextField1.getText());
-                    usuarioLoggeado=userTextField1.getText();
+                System.out.println("entro 2");
+                if (fu.readUTF().equals(contraTextField1.getText())) {
+                    Usuario_Twitter temporal = new Usuario_Twitter(userTextField1.getText());
+                    usuarioLoggeado = userTextField1.getText();
                     System.out.println("entra3");
-                    if(temporal.isActivo()){
+                    if (temporal.isActivo()) {
                         System.out.println("pasa boolean");
                         Image img = new ImageIcon(temporal.getImg_path()).getImage();
                         ImageIcon miIcono = new ImageIcon(img.getScaledInstance(FPinicio.getWidth(), FPinicio.getHeight(), Image.SCALE_SMOOTH));
-                         System.out.println("entro 4");
+                        System.out.println("entro 4");
                         pantallaInicio.setVisible(true);
                         jPanel1.setVisible(true);
                         timeline.setVisible(true);
                         showTwits.setVisible(true);
                         FPinicio.setIcon(miIcono);
                         nombreUser.setText(usuarioLoggeado);
-                         System.out.println("entro 5");
-                        cantSeguidores.setText(""+temporal.getFollowers());
-                        cantSeguidos.setText(""+temporal.getFollowings());
+                        System.out.println("entro 5");
+                        cantSeguidores.setText("" + temporal.getFollowers());
+                        cantSeguidos.setText("" + temporal.getFollowings());
                         cargarTwits();
-                        canttwits.setText(""+temporal.cantTwits());
+                        canttwits.setText("" + temporal.cantTwits());
                         principalLogin.setVisible(false);
-                         System.out.println("entro 7");
-                    }else{
-                         System.out.println("entro 1.1");
+                        System.out.println("entro 7");
+                    } else {
+                        System.out.println("entro 1.1");
                         JOptionPane.showMessageDialog(null, "Su cuenta ha sido reactivada.");
                         temporal.actUsuario();
                         Image img = new ImageIcon(temporal.getImg_path()).getImage();
@@ -940,16 +1029,16 @@ System.out.println("7");
                         timeline.setVisible(true);
                         showTwits.setVisible(true);
                         cargarTwits();
-                        canttwits.setText(""+temporal.cantTwits());
+                        canttwits.setText("" + temporal.cantTwits());
                         principalLogin.setVisible(false);
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Contraseña incorrecta!");
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Usuario incorrecto o inexistente!");
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error ARCHIVO NO ENCONTRADO ");
         } catch (ExcepcionPropia e) {
             JOptionPane.showMessageDialog(null, "Error: 404");
@@ -973,8 +1062,9 @@ System.out.println("7");
         try {
             Usuario_Twitter temporal = new Usuario_Twitter(usuarioLoggeado);
             temporal.dejarDeSeguir(userVerPerfil.getText());
+            seguidoONo.setText("No lo sigo");
         } catch (IOException | ExcepcionPropia ex) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
         }
     }//GEN-LAST:event_unfollowBotonActionPerformed
 
@@ -982,8 +1072,9 @@ System.out.println("7");
         try {
             Usuario_Twitter temporal = new Usuario_Twitter(usuarioLoggeado);
             temporal.seguirAndAddFollow(userVerPerfil.getText());
+            seguidoONo.setText("Lo sigo");
         } catch (IOException | ExcepcionPropia ex) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
         }
     }//GEN-LAST:event_followBotonActionPerformed
 
@@ -993,7 +1084,7 @@ System.out.println("7");
             perfilUser.setVisible(false);
             perfilUser.setVisible(true);
         } catch (IOException | ExcepcionPropia ex) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
         }
     }//GEN-LAST:event_verTwitsEditarActionPerformed
 
@@ -1018,7 +1109,7 @@ System.out.println("7");
             principalLogin.setVisible(true);
             JOptionPane.showMessageDialog(null, "Cuenta desactivada correctamente! ");
         } catch (IOException | ExcepcionPropia ex) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+ex);
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex);
         }
     }//GEN-LAST:event_desactivarBotonActionPerformed
 
@@ -1046,7 +1137,7 @@ System.out.println("7");
             String texto = hashTextField.getText();
 
             //elimina el primer # para que no me genere un hash vacio
-            if (texto.length() > 0){
+            if (texto.length() > 0) {
 
                 String[] hashs = texto.split(" ");
 
@@ -1068,19 +1159,19 @@ System.out.println("7");
             }
 
         } catch (ExcepcionPropia | IOException ex) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
 
         }
     }//GEN-LAST:event_buscarHashActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-    if(jComboBox1.getSelectedItem().toString().equals("masculino")){
-        genero="masculino";
-        contadorGenero++;
-    }else{
-        genero="femenino";
-        contadorGenero++;
-    }
+        if (jComboBox1.getSelectedItem().toString().equals("masculino")) {
+            genero = "masculino";
+            contadorGenero++;
+        } else {
+            genero = "femenino";
+            contadorGenero++;
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void userTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userTextField1FocusGained
@@ -1141,7 +1232,15 @@ System.out.println("7");
         interacciones.setVisible(false);
         editPerfil.setVisible(false);
     }//GEN-LAST:event_botonTimeLineActionPerformed
-public void vaciarCasillas(){
+
+    private void twitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_twitFocusGained
+
+    }//GEN-LAST:event_twitFocusGained
+
+    private void twitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_twitFocusLost
+
+    }//GEN-LAST:event_twitFocusLost
+    public void vaciarCasillas() {
         //Agarra la imagen default
         Image img = new ImageIcon("src/images/userDefault0.png ").getImage();
         ImageIcon miIcono = new ImageIcon(img.getScaledInstance(profilePicture.getWidth(), profilePicture.getHeight(), Image.SCALE_SMOOTH));
@@ -1151,62 +1250,63 @@ public void vaciarCasillas(){
         userTextField.setText("");
         contraTextField.setText("");
         //Variable que guarda el genero
-        genero="";
+        genero = "";
         //Variable para validar que se han tocado los botones y el genero haya sido seleccionado
-        contadorGenero=0;
+        contadorGenero = 0;
     }
 
     //Funcion para extraer la imagen seleccionada del File Chooser
-    public ImageIcon seleccionarImagen(){
-        String path ;
-          
-            //Crea fileChooser
-            JFileChooser fileChooser = new JFileChooser();
-            //Filtro para que unicamente pueda elegir las imagenes con formato jpg y png
-            FileNameExtensionFilter filtro = new FileNameExtensionFilter("png & jpg","png","jpg");
-            
-            //Pone por default donde aparecera el FileChooser. (Yo lo puse en imagenes porque si te metes a "redes" que tiene tu compu entonces se congela el programa)
-            fileChooser.setCurrentDirectory(new File("Z/"+Menu.MenuPrincipal.nombreIngresado));
-            //Pone el filtro
-            fileChooser.setFileFilter(filtro);
-            
-            //Variable que guarda un entero para saber si se selecciono aceptar o cancelar en el file Chooser
-            int respuesta = fileChooser.showOpenDialog(this);
-            
-            //Condicional que valida que se haya elegido la opcion de aceptar en el file Chosser
-            if(respuesta == JFileChooser.APPROVE_OPTION){
-                
-                //Guarda la ruta de el archivo seleccionado
-                path = fileChooser.getSelectedFile().getPath();
-                //Variable "global" que guarda la direccion que ha sido seleccionada del file chooser
-                pathSeleccionada=fileChooser.getSelectedFile().getPath();
-                
-                /*
+    public ImageIcon seleccionarImagen() {
+        String path;
+
+        //Crea fileChooser
+        JFileChooser fileChooser = new JFileChooser();
+        //Filtro para que unicamente pueda elegir las imagenes con formato jpg y png
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("png & jpg", "png", "jpg");
+
+        //Pone por default donde aparecera el FileChooser. (Yo lo puse en imagenes porque si te metes a "redes" que tiene tu compu entonces se congela el programa)
+        fileChooser.setCurrentDirectory(new File("Z/" + Menu.MenuPrincipal.nombreIngresado));
+        //Pone el filtro
+        fileChooser.setFileFilter(filtro);
+
+        //Variable que guarda un entero para saber si se selecciono aceptar o cancelar en el file Chooser
+        int respuesta = fileChooser.showOpenDialog(this);
+
+        //Condicional que valida que se haya elegido la opcion de aceptar en el file Chosser
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+
+            //Guarda la ruta de el archivo seleccionado
+            path = fileChooser.getSelectedFile().getPath();
+            //Variable "global" que guarda la direccion que ha sido seleccionada del file chooser
+            pathSeleccionada = fileChooser.getSelectedFile().getPath();
+
+            /*
                 Se le asigna "nada" para dar a entender que se selecciono una imagen del fileChooser, debido a que el archivo imagenPerfil es igualada
                 a nula en el constructor, y mas adelante en el codigo se ahce la validacion que si es igual a nula(osea que no selecciono ninguna imagen)
                 entonces se guarde la imagen default en el archivo.
                 
                 Perdon el mucho texto xD
                 
-                */               
-                System.out.println(pathSeleccionada);
-                Image imagen = new ImageIcon(path).getImage();
-                
-                ImageIcon miIcono = new ImageIcon(imagen.getScaledInstance(profilePicture.getWidth(), profilePicture.getHeight(), Image.SCALE_SMOOTH));
-                
-                return miIcono;
-                
-            }
-            ImageIcon miIcono = new ImageIcon(image.getScaledInstance(profilePicture.getWidth(), profilePicture.getHeight(), Image.SCALE_SMOOTH));
+             */
+            System.out.println(pathSeleccionada);
+            Image imagen = new ImageIcon(path).getImage();
+
+            ImageIcon miIcono = new ImageIcon(imagen.getScaledInstance(profilePicture.getWidth(), profilePicture.getHeight(), Image.SCALE_SMOOTH));
+
             return miIcono;
+
+        }
+        ImageIcon miIcono = new ImageIcon(image.getScaledInstance(profilePicture.getWidth(), profilePicture.getHeight(), Image.SCALE_SMOOTH));
+        return miIcono;
     }
-    private void cargarHashTags(String[] tag) throws IOException, ExcepcionPropia{
+
+    private void cargarHashTags(String[] tag) throws IOException, ExcepcionPropia {
         content.removeAll();
-        
+
         ArrayList<String[]> twits;
         Usuario_Twitter user = new Usuario_Twitter(usuarioLoggeado);
         twits = user.buscarHashTag(tag);
-        
+
         if (!twits.isEmpty()) {
 
             menzaje[] twitz = new menzaje[twits.size()];
@@ -1215,7 +1315,7 @@ public void vaciarCasillas(){
 
                 //Agarra el arreglo de twits
                 String[] menzaje = twits.get(i);
-                
+
                 //Instancia la clase con las funciones de usuarios de twitter
                 Usuario_Twitter temporal = new Usuario_Twitter(menzaje[0]);
 
@@ -1225,13 +1325,13 @@ public void vaciarCasillas(){
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
                 // Aplicar el formato a la fecha
                 String fechaFormateada = formato.format(fecha);
-               
+
                 //Obtener imagen escalada
                 Image imagen = new ImageIcon(temporal.getImg_path()).getImage();
                 ImageIcon icono = new ImageIcon(imagen.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
                 //Genera el twit
-                twitz[i]=new menzaje(icono,menzaje[1],temporal.getUser(),fechaFormateada);
-                
+                twitz[i] = new menzaje(icono, menzaje[1], temporal.getUser(), fechaFormateada);
+
                 content.setPreferredSize(new Dimension(100, (i + 1) * 125));
                 content.add(twitz[i]);
                 hashtag.setVisible(false);
@@ -1239,59 +1339,60 @@ public void vaciarCasillas(){
             }
 
         } else {
-           Image img = new ImageIcon("src/images/error404.png").getImage();
-           ImageIcon miIcono = new ImageIcon(img.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
+            Image img = new ImageIcon("src/images/error404.png").getImage();
+            ImageIcon miIcono = new ImageIcon(img.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
             menzaje a = new menzaje(miIcono, "No se ha podido encontrar ese hashtag", "", "");
             content.add(a);
             hashtag.setVisible(false);
             hashtag.setVisible(true);
         }
     }
-    private void buscarUsers() throws IOException,ExcepcionPropia{
+
+    private void buscarUsers() throws IOException, ExcepcionPropia {
         String searchTerm = buscarTextField.getText();
         ArrayList<String> filteredUsers = new ArrayList<>();
         file_Users.seek(0);
-        while(file_Users.getFilePointer()<file_Users.length()){    
-        Usuario_Twitter temporal = new Usuario_Twitter(file_Users.readUTF());
-        String user = temporal.getUser();
-        if(user.equals(usuarioLoggeado)){
-            file_Users.readChar();
-            file_Users.readUTF();
-            file_Users.readUTF();
-            file_Users.readLong();
-            file_Users.readInt();
-            file_Users.readBoolean();
-            file_Users.readUTF();    
-        }else{
-        if(!temporal.isActivo()){
-            file_Users.readChar();
-            file_Users.readUTF();
-            file_Users.readUTF();
-            file_Users.readLong();
-            file_Users.readInt();
-            file_Users.readBoolean();
-            file_Users.readUTF();    
-        }else{
-            if(user.contains(searchTerm)){
-                filteredUsers.add(user);
+        while (file_Users.getFilePointer() < file_Users.length()) {
+            Usuario_Twitter temporal = new Usuario_Twitter(file_Users.readUTF());
+            String user = temporal.getUser();
+            if (user.equals(usuarioLoggeado)) {
+                file_Users.readChar();
+                file_Users.readUTF();
+                file_Users.readUTF();
+                file_Users.readLong();
+                file_Users.readInt();
+                file_Users.readBoolean();
+                file_Users.readUTF();
+            } else {
+                if (!temporal.isActivo()) {
+                    file_Users.readChar();
+                    file_Users.readUTF();
+                    file_Users.readUTF();
+                    file_Users.readLong();
+                    file_Users.readInt();
+                    file_Users.readBoolean();
+                    file_Users.readUTF();
+                } else {
+                    if (user.contains(searchTerm)) {
+                        filteredUsers.add(user);
+                    }
+                    file_Users.readChar();
+                    file_Users.readUTF();
+                    file_Users.readUTF();
+                    file_Users.readLong();
+                    file_Users.readInt();
+                    file_Users.readBoolean();
+                    file_Users.readUTF();
+                }
             }
-            file_Users.readChar();
-            file_Users.readUTF();
-            file_Users.readUTF();
-            file_Users.readLong();
-            file_Users.readInt();
-            file_Users.readBoolean();
-            file_Users.readUTF();    
-        }
-        }
-        displayUsers(filteredUsers);
+            displayUsers(filteredUsers);
         }
     }
-    
+
     private void displayUsers(ArrayList<String> users) throws IOException, ExcepcionPropia {
         Usuario_Twitter logged = new Usuario_Twitter(usuarioLoggeado);
         contenidoPanel.removeAll();
-        
+
         for (String user : users) {
             JButton userButton = new JButton(user);
             userButton.addActionListener((ActionEvent e) -> {
@@ -1305,36 +1406,36 @@ public void vaciarCasillas(){
                     fotoVerPerfil.setIcon(miIcono);
                     userVerPerfil.setText(temporal.getUser());
                     editPerfil.setVisible(false);
-                    labelSeguidores.setText(""+temporal.getFollowers());
-                    labelSeguidos.setText(""+temporal.getFollowings());
+                    labelSeguidores.setText("" + temporal.getFollowers());
+                    labelSeguidos.setText("" + temporal.getFollowings());
                     nombreVerPerfil1.setText(temporal.getNombre());
-                    if(logged.loSigo(temporal.getUser())){
+                    if (logged.loSigo(temporal.getUser())) {
                         seguidoONo.setText("Lo Sigo!");
-                    }else{
+                    } else {
                         seguidoONo.setText("No lo Sigo!");
                     }
-                }catch (IOException | ExcepcionPropia ex) {
-                    JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+ex.getMessage());
+                } catch (IOException | ExcepcionPropia ex) {
+                    JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
                 }
             });
             contenidoPanel.add(userButton);
         }
     }
-    private void cargarTwits()throws IOException, ExcepcionPropia{
-       contenido.removeAll();
-       Usuario_Twitter user = new Usuario_Twitter(usuarioLoggeado);
-       ArrayList<String[]> twits;
-       twits = user.cargarTwits();
-       
-       menzaje[] twitz = new menzaje[twits.size()];
-       if(!twits.isEmpty()){
-           
+
+    private void cargarTwits() throws IOException, ExcepcionPropia {
+        contenido.removeAll();
+        Usuario_Twitter user = new Usuario_Twitter(usuarioLoggeado);
+        ArrayList<String[]> twits;
+        twits = user.cargarTwits();
+
+        menzaje[] twitz = new menzaje[twits.size()];
+        if (!twits.isEmpty()) {
 
             for (int i = 0; i < twitz.length; i++) {
-                    
+
                 //Agarra el arreglo de twits
                 String[] menzaje = twits.get(i);
-                
+
                 //Instancia la clase con las funciones de usuarios de twitter
                 Usuario_Twitter temporal = new Usuario_Twitter(menzaje[0]);
 
@@ -1344,34 +1445,33 @@ public void vaciarCasillas(){
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
                 // Aplicar el formato a la fecha
                 String fechaFormateada = formato.format(fecha);
-               
+
                 //Obtener imagen escalada
                 Image imagen = new ImageIcon(temporal.getImg_path()).getImage();
                 ImageIcon icono = new ImageIcon(imagen.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
                 //Genera el twit
-                twitz[i]=new menzaje(icono,menzaje[1],temporal.getUser(),fechaFormateada);
-                
+                twitz[i] = new menzaje(icono, menzaje[1], temporal.getUser(), fechaFormateada);
+
                 contenido.setPreferredSize(new Dimension(100, (i + 1) * 125));
                 contenido.add(twitz[i]);
             }
-       }
+        }
     }
-    
-    private void cargarTwitsEditPerfil()throws IOException, ExcepcionPropia{
-       contenidoVerPerfil.removeAll();
-       Usuario_Twitter user = new Usuario_Twitter(userVerPerfil.getText());
-       ArrayList<String[]> twits;
-       twits = user.misTwits();
-       
-       menzaje[] twitz = new menzaje[twits.size()];
-       if(!twits.isEmpty()){
-           
+
+    private void cargarTwitsEditPerfil() throws IOException, ExcepcionPropia {
+        contenidoVerPerfil.removeAll();
+        Usuario_Twitter user = new Usuario_Twitter(userVerPerfil.getText());
+        ArrayList<String[]> twits;
+        twits = user.misTwits();
+
+        menzaje[] twitz = new menzaje[twits.size()];
+        if (!twits.isEmpty()) {
 
             for (int i = 0; i < twitz.length; i++) {
-                    
+
                 //Agarra el arreglo de twits
                 String[] menzaje = twits.get(i);
-                
+
                 //Instancia la clase con las funciones de usuarios de twitter
                 Usuario_Twitter temporal = new Usuario_Twitter(menzaje[0]);
 
@@ -1381,65 +1481,66 @@ public void vaciarCasillas(){
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
                 // Aplicar el formato a la fecha
                 String fechaFormateada = formato.format(fecha);
-               
+
                 //Obtener imagen escalada
                 Image imagen = new ImageIcon(temporal.getImg_path()).getImage();
                 ImageIcon icono = new ImageIcon(imagen.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
                 //Genera el twit
-                twitz[i]=new menzaje(icono,menzaje[1],temporal.getUser(),fechaFormateada);
-                
+                twitz[i] = new menzaje(icono, menzaje[1], temporal.getUser(), fechaFormateada);
+
                 contenidoVerPerfil.setPreferredSize(new Dimension(100, (i + 1) * 125));
                 contenidoVerPerfil.add(twitz[i]);
             }
-       }
+        }
     }
-    public void cargarInteracciones(){
+
+    public void cargarInteracciones() {
         contentInteracciones.removeAll();
 
-        try{
+        try {
             Usuario_Twitter user = new Usuario_Twitter(usuarioLoggeado);
-        ArrayList<String[]> twits;
-        twits = user.cargarInteracciones();
-        
-        if (!twits.isEmpty()) {
+            ArrayList<String[]> twits;
+            twits = user.cargarInteracciones();
 
-            menzaje[] twitz = new menzaje[twits.size()];
+            if (!twits.isEmpty()) {
 
-            for (int i = 0; i < twitz.length; i++) {
+                menzaje[] twitz = new menzaje[twits.size()];
 
-                String[] mensaje = twits.get(i);
+                for (int i = 0; i < twitz.length; i++) {
 
-                Usuario_Twitter temporal = new Usuario_Twitter(mensaje[0]);
+                    String[] mensaje = twits.get(i);
 
-                //formato de fecha
-                Date fecha = new Date();
-                fecha.setTime(Long.parseLong(mensaje[2]));
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                // Aplicar el formato a la fecha
-                String fechaFormateada = formato.format(fecha);
+                    Usuario_Twitter temporal = new Usuario_Twitter(mensaje[0]);
 
-               //Obtener imagen escalada
-                Image imagen = new ImageIcon(temporal.getImg_path()).getImage();
-                ImageIcon icono = new ImageIcon(imagen.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
+                    //formato de fecha
+                    Date fecha = new Date();
+                    fecha.setTime(Long.parseLong(mensaje[2]));
+                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    // Aplicar el formato a la fecha
+                    String fechaFormateada = formato.format(fecha);
 
-                twitz[i] = new menzaje(icono, mensaje[1],temporal.getUser(), fechaFormateada);
+                    //Obtener imagen escalada
+                    Image imagen = new ImageIcon(temporal.getImg_path()).getImage();
+                    ImageIcon icono = new ImageIcon(imagen.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
 
-                contentInteracciones.setPreferredSize(new Dimension(100, (i + 1) * 125));
-                contentInteracciones.add(twitz[i]);
+                    twitz[i] = new menzaje(icono, mensaje[1], temporal.getUser(), fechaFormateada);
+
+                    contentInteracciones.setPreferredSize(new Dimension(100, (i + 1) * 125));
+                    contentInteracciones.add(twitz[i]);
+                }
+
+            } else {
+                Image img = new ImageIcon("src/images/error404.png").getImage();
+                ImageIcon miIcono = new ImageIcon(img.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
+                menzaje a = new menzaje(miIcono, "No se ha podido encontrar una interaccion!", "", "");
+                contentInteracciones.add(a);
+                interacciones.setVisible(false);
+                interacciones.setVisible(true);
             }
+        } catch (IOException | ExcepcionPropia e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
 
-        } else {
-            Image img = new ImageIcon("src/images/error404.png").getImage();
-            ImageIcon miIcono = new ImageIcon(img.getScaledInstance(90, 90, Image.SCALE_SMOOTH));
-            menzaje a = new menzaje(miIcono, "No se ha podido encontrar una interaccion!", "", "");
-            contentInteracciones.add(a);
-            interacciones.setVisible(false);
-            interacciones.setVisible(true);
-        }
-        }catch(IOException | ExcepcionPropia e){
-            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
-        }
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1492,7 +1593,10 @@ public void vaciarCasillas(){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelSeguidores;
     private javax.swing.JLabel labelSeguidos;
     private javax.swing.JButton logOut;
@@ -1524,6 +1628,8 @@ public void vaciarCasillas(){
     private javax.swing.JLabel userVerPerfil;
     private javax.swing.JLabel userVerPerfil3;
     private javax.swing.JLabel userVerPerfil4;
+    private javax.swing.JLabel userVerPerfil5;
+    private javax.swing.JLabel userVerPerfil6;
     private javax.swing.JButton verTwitsEditar;
     private javax.swing.JButton volverBoton;
     private javax.swing.JButton volverEditPerfil;
