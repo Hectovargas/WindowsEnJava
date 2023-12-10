@@ -15,26 +15,16 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-/**
- *
- * @author Hector
- */
+
 public class twitter extends javax.swing.JInternalFrame {
  String pathSeleccionada="";
    private RandomAccessFile file_Users;
     public twitter() {
         initComponents();
         
-        //Asignacion del tamaño del jFrame
-        this.setSize(1360, 780);
-        
-        //Asignacion del tamaño del Panel donde se hace el registro
-        registro.setSize(1360,780);
         //Asignacion para que no se muestre el panel de registro al ejecutar
         registro.setVisible(false);
         
-        //Asignacion del tamaño del Panel donde se muestran los twits
-        pantallaInicio.setSize(1360, 780);
         //Asignacion para que no se muestre el panel donde se muestran los twits
         pantallaInicio.setVisible(false);
         
@@ -54,7 +44,6 @@ public class twitter extends javax.swing.JInternalFrame {
         hashtag.setVisible(false);
         
         //Asignacion del tamaño del Panel donde se hace el inicio de sesion
-        principalLogin.setSize(1360, 780);
         //Asignacion para que no se muestre el panel de inicio de sesion al ejecutar
         principalLogin.setVisible(true);
 
@@ -109,8 +98,6 @@ public class twitter extends javax.swing.JInternalFrame {
         fotoPerfilLabel = new javax.swing.JLabel();
         contraLabel1 = new javax.swing.JLabel();
         RegistrarseBoton = new javax.swing.JButton();
-        botonFemenino = new javax.swing.JButton();
-        botonMasculino = new javax.swing.JButton();
         userLabel1 = new javax.swing.JLabel();
         nombreUsuarioText = new javax.swing.JTextField();
         userLabel2 = new javax.swing.JLabel();
@@ -120,6 +107,8 @@ public class twitter extends javax.swing.JInternalFrame {
         seleccionarImagenBoton = new javax.swing.JButton();
         profilePicture = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        baaack = new javax.swing.JButton();
         timeline = new javax.swing.JPanel();
         twit = new javax.swing.JTextField();
         botonEnviar = new javax.swing.JButton();
@@ -163,7 +152,6 @@ public class twitter extends javax.swing.JInternalFrame {
         FPinicio = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        salir = new javax.swing.JButton();
         canttwits = new javax.swing.JLabel();
         cantSeguidores = new javax.swing.JLabel();
         nombreUser = new javax.swing.JLabel();
@@ -176,198 +164,229 @@ public class twitter extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         cantSeguidos = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
+        setBorder(new javax.swing.border.MatteBorder(null));
         setClosable(true);
         setIconifiable(true);
+        setResizable(true);
+        setMaximumSize(new java.awt.Dimension(1200, 700));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1200, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        principalLogin.setBackground(new java.awt.Color(102, 204, 255));
+        principalLogin.setBackground(new java.awt.Color(0, 153, 204));
+        principalLogin.setMaximumSize(new java.awt.Dimension(1200, 680));
+        principalLogin.setMinimumSize(new java.awt.Dimension(1200, 680));
+        principalLogin.setPreferredSize(new java.awt.Dimension(1200, 680));
         principalLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo_InicioSesionLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 80)); // NOI18N
-        Titulo_InicioSesionLabel.setForeground(new java.awt.Color(255, 255, 255));
+        Titulo_InicioSesionLabel.setForeground(new java.awt.Color(0, 0, 0));
         Titulo_InicioSesionLabel.setText("Iniciar Sesion");
-        principalLogin.add(Titulo_InicioSesionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 540, 100));
+        principalLogin.add(Titulo_InicioSesionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 490, 100));
 
-        userSesionLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 48)); // NOI18N
-        userSesionLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        userSesionLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 44)); // NOI18N
+        userSesionLabel1.setForeground(new java.awt.Color(0, 0, 0));
         userSesionLabel1.setText("Usuario");
-        principalLogin.add(userSesionLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 200, 100));
+        principalLogin.add(userSesionLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 160, 100));
 
-        contraSesionLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 48)); // NOI18N
-        contraSesionLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        contraSesionLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 44)); // NOI18N
+        contraSesionLabel2.setForeground(new java.awt.Color(0, 0, 0));
         contraSesionLabel2.setText("Contraseña");
-        principalLogin.add(contraSesionLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 260, 100));
+        principalLogin.add(contraSesionLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 230, 100));
 
         userTextField1.setBackground(new java.awt.Color(255, 255, 255));
         userTextField1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         userTextField1.setForeground(new java.awt.Color(51, 153, 255));
-        principalLogin.add(userTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 540, 50));
+        userTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                userTextField1FocusLost(evt);
+            }
+        });
+        principalLogin.add(userTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 540, 50));
 
         contraTextField1.setBackground(new java.awt.Color(255, 255, 255));
         contraTextField1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         contraTextField1.setForeground(new java.awt.Color(51, 153, 255));
-        principalLogin.add(contraTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 540, 50));
+        principalLogin.add(contraTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 540, 50));
 
-        botonIngresar.setBackground(new java.awt.Color(51, 153, 255));
+        botonIngresar.setBackground(new java.awt.Color(255, 255, 255));
         botonIngresar.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        botonIngresar.setForeground(new java.awt.Color(255, 255, 255));
+        botonIngresar.setForeground(new java.awt.Color(0, 0, 0));
         botonIngresar.setText("Ingresar");
+        botonIngresar.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         botonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIngresarActionPerformed(evt);
             }
         });
-        principalLogin.add(botonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 300, 310, 100));
+        principalLogin.add(botonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 270, 260, 70));
 
-        textoParaRegistrarLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        textoParaRegistrarLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         textoParaRegistrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        textoParaRegistrarLabel.setText("No tienes una cuenta aun? Registrate!!!");
-        principalLogin.add(textoParaRegistrarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 620, 850, 90));
+        textoParaRegistrarLabel.setText("¿No tienes una cuenta aun?");
+        principalLogin.add(textoParaRegistrarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 300, 60));
 
-        jButton1.setBackground(new java.awt.Color(51, 153, 255));
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 48)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(0, 153, 204));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Registrate");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        principalLogin.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 620, 300, 90));
+        principalLogin.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 160, 60));
 
-        getContentPane().add(principalLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 780));
+        getContentPane().add(principalLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
-        registro.setBackground(new java.awt.Color(102, 204, 255));
+        registro.setBackground(new java.awt.Color(0, 153, 204));
+        registro.setPreferredSize(new java.awt.Dimension(1200, 680));
         registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imagenTwitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoTwitter0.png"))); // NOI18N
-        registro.add(imagenTwitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 60, 300, 280));
+        registro.add(imagenTwitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 300, 260));
 
-        userLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(255, 255, 255));
+        userLabel.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        userLabel.setForeground(new java.awt.Color(0, 0, 0));
         userLabel.setText("Usuario");
-        registro.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 130, 50));
+        registro.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 90, 50));
 
         Titulo_CrearUsuarioLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 60)); // NOI18N
         Titulo_CrearUsuarioLabel.setForeground(new java.awt.Color(255, 255, 255));
         Titulo_CrearUsuarioLabel.setText("Crear Usuario");
-        registro.add(Titulo_CrearUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 390, 100));
+        registro.add(Titulo_CrearUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 390, 80));
 
         userTextField.setBackground(new java.awt.Color(255, 255, 255));
         userTextField.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         userTextField.setForeground(new java.awt.Color(51, 153, 255));
-        registro.add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 540, -1));
+        userTextField.setBorder(new javax.swing.border.MatteBorder(null));
+        registro.add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 420, -1));
 
         fotoPerfilLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
-        fotoPerfilLabel.setForeground(new java.awt.Color(255, 255, 255));
+        fotoPerfilLabel.setForeground(new java.awt.Color(0, 0, 0));
         fotoPerfilLabel.setText("Foto de Perfil");
-        registro.add(fotoPerfilLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 230, 60));
+        registro.add(fotoPerfilLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 230, 60));
 
-        contraLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
-        contraLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        contraLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        contraLabel1.setForeground(new java.awt.Color(0, 0, 0));
         contraLabel1.setText("Genero");
-        registro.add(contraLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, 60));
+        registro.add(contraLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 90, 80));
 
         RegistrarseBoton.setBackground(new java.awt.Color(0, 153, 255));
-        RegistrarseBoton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 48)); // NOI18N
+        RegistrarseBoton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 30)); // NOI18N
         RegistrarseBoton.setForeground(new java.awt.Color(255, 255, 255));
         RegistrarseBoton.setText("Registrarse");
+        RegistrarseBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         RegistrarseBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegistrarseBotonActionPerformed(evt);
             }
         });
-        registro.add(RegistrarseBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 580, 320, 140));
+        registro.add(RegistrarseBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 200, 60));
 
-        botonFemenino.setBackground(new java.awt.Color(51, 153, 255));
-        botonFemenino.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        botonFemenino.setForeground(new java.awt.Color(255, 255, 255));
-        botonFemenino.setText("Femenino");
-        botonFemenino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonFemeninoActionPerformed(evt);
-            }
-        });
-        registro.add(botonFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 210, 60));
-
-        botonMasculino.setBackground(new java.awt.Color(51, 153, 255));
-        botonMasculino.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        botonMasculino.setForeground(new java.awt.Color(255, 255, 255));
-        botonMasculino.setText("Masculino");
-        botonMasculino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonMasculinoActionPerformed(evt);
-            }
-        });
-        registro.add(botonMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 210, 60));
-
-        userLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
-        userLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        userLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        userLabel1.setForeground(new java.awt.Color(0, 0, 0));
         userLabel1.setText("Nombre Usuario");
-        registro.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 280, 50));
+        registro.add(userLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 200, 50));
 
         nombreUsuarioText.setBackground(new java.awt.Color(255, 255, 255));
         nombreUsuarioText.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         nombreUsuarioText.setForeground(new java.awt.Color(51, 153, 255));
+        nombreUsuarioText.setBorder(new javax.swing.border.MatteBorder(null));
         nombreUsuarioText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreUsuarioTextActionPerformed(evt);
             }
         });
-        registro.add(nombreUsuarioText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 540, -1));
+        registro.add(nombreUsuarioText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 420, -1));
 
-        userLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
-        userLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        userLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        userLabel2.setForeground(new java.awt.Color(0, 0, 0));
         userLabel2.setText("Contraseña");
-        registro.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 190, 50));
+        registro.add(userLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 130, 50));
 
         contraTextField.setBackground(new java.awt.Color(255, 255, 255));
         contraTextField.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         contraTextField.setForeground(new java.awt.Color(51, 153, 255));
-        registro.add(contraTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 540, -1));
+        contraTextField.setBorder(new javax.swing.border.MatteBorder(null));
+        registro.add(contraTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 420, -1));
 
-        userLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
-        userLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        userLabel3.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        userLabel3.setForeground(new java.awt.Color(0, 0, 0));
         userLabel3.setText("Edad");
-        registro.add(userLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 90, 50));
+        registro.add(userLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 60, 50));
 
         edadTextField.setBackground(new java.awt.Color(255, 255, 255));
         edadTextField.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         edadTextField.setForeground(new java.awt.Color(51, 153, 255));
+        edadTextField.setBorder(new javax.swing.border.MatteBorder(null));
         edadTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edadTextFieldActionPerformed(evt);
             }
         });
-        registro.add(edadTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 540, -1));
+        registro.add(edadTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 90, -1));
 
         seleccionarImagenBoton.setBackground(new java.awt.Color(0, 153, 255));
         seleccionarImagenBoton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         seleccionarImagenBoton.setForeground(new java.awt.Color(255, 255, 255));
-        seleccionarImagenBoton.setText("Seleccionar");
+        seleccionarImagenBoton.setText("Seleccionar Foto");
+        seleccionarImagenBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         seleccionarImagenBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seleccionarImagenBotonActionPerformed(evt);
             }
         });
-        registro.add(seleccionarImagenBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 700, 220, 40));
-        registro.add(profilePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, 220, 180));
+        registro.add(seleccionarImagenBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 220, 40));
+
+        profilePicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        registro.add(profilePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 250, 220));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("x");
+        jButton2.setText("Quitar");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        registro.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 40, 40));
+        registro.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 220, 40));
 
-        getContentPane().add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 780));
+        jComboBox1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        registro.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 170, 50));
+
+        baaack.setBackground(new java.awt.Color(204, 0, 0));
+        baaack.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        baaack.setForeground(new java.awt.Color(255, 255, 255));
+        baaack.setText("Volver ");
+        baaack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        baaack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                baaackActionPerformed(evt);
+            }
+        });
+        registro.add(baaack, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 200, 60));
+
+        getContentPane().add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
         timeline.setBackground(new java.awt.Color(102, 204, 255));
+        timeline.setPreferredSize(new java.awt.Dimension(630, 580));
         timeline.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         twit.setBackground(new java.awt.Color(255, 255, 255));
@@ -383,7 +402,7 @@ public class twitter extends javax.swing.JInternalFrame {
                 twitKeyPressed(evt);
             }
         });
-        timeline.add(twit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 650, 40));
+        timeline.add(twit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 500, 40));
 
         botonEnviar.setBackground(new java.awt.Color(51, 204, 255));
         botonEnviar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -394,16 +413,16 @@ public class twitter extends javax.swing.JInternalFrame {
                 botonEnviarActionPerformed(evt);
             }
         });
-        timeline.add(botonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 90, 40));
+        timeline.add(botonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 90, 40));
 
         showTwits.setBackground(new java.awt.Color(0, 102, 102));
 
         contenido.setBackground(new java.awt.Color(51, 204, 255));
         showTwits.setViewportView(contenido);
 
-        timeline.add(showTwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 750, 610));
+        timeline.add(showTwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 610, 500));
 
-        getContentPane().add(timeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 760, 670));
+        getContentPane().add(timeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 630, -1));
 
         perfilUser.setBackground(new java.awt.Color(102, 204, 255));
         perfilUser.setForeground(new java.awt.Color(255, 255, 255));
@@ -411,32 +430,32 @@ public class twitter extends javax.swing.JInternalFrame {
 
         fotoVerPerfil.setForeground(new java.awt.Color(255, 255, 255));
         fotoVerPerfil.setText("Foto de Perfil");
-        perfilUser.add(fotoVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 170, 170));
+        perfilUser.add(fotoVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 170));
 
         userVerPerfil.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         userVerPerfil.setForeground(new java.awt.Color(255, 255, 255));
         userVerPerfil.setText("Usuario");
-        perfilUser.add(userVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 330, 50));
+        perfilUser.add(userVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 330, 50));
 
         labelSeguidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         labelSeguidos.setForeground(new java.awt.Color(255, 255, 255));
         labelSeguidos.setText("cant");
-        perfilUser.add(labelSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 100, 30));
+        perfilUser.add(labelSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 100, 30));
 
         userVerPerfil3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         userVerPerfil3.setForeground(new java.awt.Color(255, 255, 255));
         userVerPerfil3.setText("Seguidores");
-        perfilUser.add(userVerPerfil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 50));
+        perfilUser.add(userVerPerfil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 130, 50));
 
         userVerPerfil4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         userVerPerfil4.setForeground(new java.awt.Color(255, 255, 255));
         userVerPerfil4.setText("Seguidos");
-        perfilUser.add(userVerPerfil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 100, 50));
+        perfilUser.add(userVerPerfil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 100, 50));
 
         labelSeguidores.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         labelSeguidores.setForeground(new java.awt.Color(255, 255, 255));
         labelSeguidores.setText("cant");
-        perfilUser.add(labelSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 80, 30));
+        perfilUser.add(labelSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 80, 30));
 
         volverBoton.setText("volver");
         volverBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -444,7 +463,7 @@ public class twitter extends javax.swing.JInternalFrame {
                 volverBotonActionPerformed(evt);
             }
         });
-        perfilUser.add(volverBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 580, 130, 50));
+        perfilUser.add(volverBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, 130, 50));
 
         unfollowBoton.setText("Unfollow");
         unfollowBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -452,7 +471,7 @@ public class twitter extends javax.swing.JInternalFrame {
                 unfollowBotonActionPerformed(evt);
             }
         });
-        perfilUser.add(unfollowBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 130, 50));
+        perfilUser.add(unfollowBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 130, 50));
 
         followBoton.setText("Follow");
         followBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -460,7 +479,7 @@ public class twitter extends javax.swing.JInternalFrame {
                 followBotonActionPerformed(evt);
             }
         });
-        perfilUser.add(followBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 130, 50));
+        perfilUser.add(followBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 130, 50));
 
         verTwitsEditar.setText("ver twits");
         verTwitsEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -468,25 +487,26 @@ public class twitter extends javax.swing.JInternalFrame {
                 verTwitsEditarActionPerformed(evt);
             }
         });
-        perfilUser.add(verTwitsEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 130, 50));
+        perfilUser.add(verTwitsEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 130, 50));
 
         seguidoONo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         seguidoONo.setForeground(new java.awt.Color(255, 255, 255));
         seguidoONo.setText("Seguido?");
-        perfilUser.add(seguidoONo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 180, 40));
+        perfilUser.add(seguidoONo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 180, 40));
 
         twitsVerPerfil.setViewportView(contenidoVerPerfil);
 
-        perfilUser.add(twitsVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 760, 300));
+        perfilUser.add(twitsVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 760, 300));
 
         nombreVerPerfil1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         nombreVerPerfil1.setForeground(new java.awt.Color(255, 255, 255));
         nombreVerPerfil1.setText("Nombre de Usuario");
-        perfilUser.add(nombreVerPerfil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 310, 50));
+        perfilUser.add(nombreVerPerfil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 310, 50));
 
-        getContentPane().add(perfilUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 780, 630));
+        getContentPane().add(perfilUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 780, 540));
 
         editPerfil.setBackground(new java.awt.Color(51, 204, 255));
+        editPerfil.setPreferredSize(new java.awt.Dimension(630, 580));
         editPerfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buscarTextField.setBackground(new java.awt.Color(255, 255, 255));
@@ -497,12 +517,12 @@ public class twitter extends javax.swing.JInternalFrame {
                 buscarTextFieldKeyReleased(evt);
             }
         });
-        editPerfil.add(buscarTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 440, 30));
+        editPerfil.add(buscarTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 440, 30));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Buscar: ");
-        editPerfil.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 120, 50));
+        editPerfil.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 50));
 
         desactivarBoton.setText("Desactivar Cuenta");
         desactivarBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -510,11 +530,11 @@ public class twitter extends javax.swing.JInternalFrame {
                 desactivarBotonActionPerformed(evt);
             }
         });
-        editPerfil.add(desactivarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 130, 30));
+        editPerfil.add(desactivarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 130, 30));
 
         jScrollPane1.setViewportView(contenidoPanel);
 
-        editPerfil.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 590, 470));
+        editPerfil.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 590, 430));
 
         searchBoton.setText("Buscar");
         searchBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -522,7 +542,7 @@ public class twitter extends javax.swing.JInternalFrame {
                 searchBotonActionPerformed(evt);
             }
         });
-        editPerfil.add(searchBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 130, 30));
+        editPerfil.add(searchBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 90, 30));
 
         volverEditPerfil.setText("volver");
         volverEditPerfil.addActionListener(new java.awt.event.ActionListener() {
@@ -530,9 +550,9 @@ public class twitter extends javax.swing.JInternalFrame {
                 volverEditPerfilActionPerformed(evt);
             }
         });
-        editPerfil.add(volverEditPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 130, 30));
+        editPerfil.add(volverEditPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 130, 30));
 
-        getContentPane().add(editPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 760, 670));
+        getContentPane().add(editPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, -1));
 
         interacciones.setBackground(new java.awt.Color(51, 204, 255));
         interacciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -542,19 +562,19 @@ public class twitter extends javax.swing.JInternalFrame {
         contentInteracciones.setBackground(new java.awt.Color(102, 204, 255));
         interaccionesText.setViewportView(contentInteracciones);
 
-        interacciones.add(interaccionesText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 730, 570));
+        interacciones.add(interaccionesText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 620, 500));
 
         userInteraccion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 60)); // NOI18N
         userInteraccion.setForeground(new java.awt.Color(255, 255, 255));
         userInteraccion.setText("nombre_usuario");
-        interacciones.add(userInteraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 520, 70));
+        interacciones.add(userInteraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 520, 70));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 60)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("@");
         interacciones.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
-        getContentPane().add(interacciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 760, 670));
+        getContentPane().add(interacciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, -1, 579));
 
         hashtag.setBackground(new java.awt.Color(51, 204, 255));
         hashtag.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -562,10 +582,10 @@ public class twitter extends javax.swing.JInternalFrame {
         hashTextField.setBackground(new java.awt.Color(255, 255, 255));
         hashTextField.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         hashTextField.setForeground(new java.awt.Color(0, 0, 0));
-        hashtag.add(hashTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 470, 40));
+        hashtag.add(hashTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 410, 40));
 
         buscarHash.setBackground(new java.awt.Color(51, 153, 255));
-        buscarHash.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        buscarHash.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         buscarHash.setForeground(new java.awt.Color(204, 255, 255));
         buscarHash.setText("Buscar HashTags");
         buscarHash.addActionListener(new java.awt.event.ActionListener() {
@@ -573,139 +593,143 @@ public class twitter extends javax.swing.JInternalFrame {
                 buscarHashActionPerformed(evt);
             }
         });
-        hashtag.add(buscarHash, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 220, 60));
+        hashtag.add(buscarHash, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 120, 60));
 
         hashText.setBackground(new java.awt.Color(0, 102, 102));
 
         content.setBackground(new java.awt.Color(102, 204, 255));
         hashText.setViewportView(content);
 
-        hashtag.add(hashText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 730, 570));
+        hashtag.add(hashText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 600, 480));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("#");
         hashtag.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 60));
 
-        getContentPane().add(hashtag, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 760, 670));
+        getContentPane().add(hashtag, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 630, 580));
 
-        pantallaInicio.setBackground(new java.awt.Color(102, 204, 255));
+        pantallaInicio.setBackground(new java.awt.Color(0, 153, 204));
+        pantallaInicio.setMaximumSize(new java.awt.Dimension(1200, 680));
+        pantallaInicio.setMinimumSize(new java.awt.Dimension(1200, 680));
+        pantallaInicio.setPreferredSize(new java.awt.Dimension(1200, 680));
         pantallaInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FPinicio.setForeground(new java.awt.Color(255, 255, 255));
         FPinicio.setText("Foto de Perfil");
-        pantallaInicio.add(FPinicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, 210));
+        pantallaInicio.add(FPinicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 190, 160));
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Twitter");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 180, 50));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 180, 40));
 
-        salir.setBackground(new java.awt.Color(153, 0, 0));
-        salir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        salir.setForeground(new java.awt.Color(255, 51, 51));
-        salir.setText("Salir de Twitter");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
-            }
-        });
-        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 0, 240, 50));
+        pantallaInicio.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 40));
 
-        pantallaInicio.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 50));
-
-        canttwits.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        canttwits.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         canttwits.setForeground(new java.awt.Color(255, 255, 255));
         canttwits.setText("cant twits");
-        pantallaInicio.add(canttwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 110, 40));
+        pantallaInicio.add(canttwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 110, 40));
 
-        cantSeguidores.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        cantSeguidores.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         cantSeguidores.setForeground(new java.awt.Color(255, 255, 255));
         cantSeguidores.setText("num");
-        pantallaInicio.add(cantSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 70, 40));
+        pantallaInicio.add(cantSeguidores, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 70, 40));
 
-        nombreUser.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        nombreUser.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         nombreUser.setForeground(new java.awt.Color(255, 255, 255));
         nombreUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreUser.setText("Usuario");
-        pantallaInicio.add(nombreUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 220, 40));
+        pantallaInicio.add(nombreUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 220, 40));
 
         logOut.setBackground(new java.awt.Color(51, 153, 255));
         logOut.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         logOut.setForeground(new java.awt.Color(255, 255, 255));
         logOut.setText("Cerrar Sesion");
+        logOut.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 102)));
         logOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOutActionPerformed(evt);
             }
         });
-        pantallaInicio.add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 680, 190, 50));
+        pantallaInicio.add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 620, 190, 50));
 
         botonHashTag.setBackground(new java.awt.Color(51, 153, 255));
         botonHashTag.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         botonHashTag.setForeground(new java.awt.Color(255, 255, 255));
         botonHashTag.setText("HashTags");
+        botonHashTag.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 102)));
         botonHashTag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonHashTagActionPerformed(evt);
             }
         });
-        pantallaInicio.add(botonHashTag, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 190, 50));
+        pantallaInicio.add(botonHashTag, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 190, 50));
 
         botonTimeLine.setBackground(new java.awt.Color(51, 153, 255));
         botonTimeLine.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         botonTimeLine.setForeground(new java.awt.Color(255, 255, 255));
         botonTimeLine.setText("Time Line");
+        botonTimeLine.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 102)));
         botonTimeLine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonTimeLineActionPerformed(evt);
             }
         });
-        pantallaInicio.add(botonTimeLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 190, 50));
+        pantallaInicio.add(botonTimeLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 190, 50));
 
         botonInteracciones.setBackground(new java.awt.Color(51, 153, 255));
         botonInteracciones.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         botonInteracciones.setForeground(new java.awt.Color(255, 255, 255));
         botonInteracciones.setText("Interacciones");
+        botonInteracciones.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 102)));
         botonInteracciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonInteraccionesActionPerformed(evt);
             }
         });
-        pantallaInicio.add(botonInteracciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 190, 50));
+        pantallaInicio.add(botonInteracciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 190, 50));
 
         editPerfilBoton.setText("Editar Perfil");
+        editPerfilBoton.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 102)));
         editPerfilBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editPerfilBotonActionPerformed(evt);
             }
         });
-        pantallaInicio.add(editPerfilBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 620, 190, 50));
+        pantallaInicio.add(editPerfilBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 190, 50));
 
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Twits");
-        pantallaInicio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 70, 40));
+        pantallaInicio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 70, 40));
 
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Seguidos");
-        pantallaInicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 110, 40));
+        pantallaInicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 110, 40));
 
-        cantSeguidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        cantSeguidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         cantSeguidos.setForeground(new java.awt.Color(255, 255, 255));
         cantSeguidos.setText("num");
-        pantallaInicio.add(cantSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 70, 40));
+        pantallaInicio.add(cantSeguidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 70, 40));
 
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Seguidores");
-        pantallaInicio.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 130, 40));
+        pantallaInicio.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 130, 40));
 
-        getContentPane().add(pantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 790));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 255, 255)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pantallaInicio.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 350, 640));
+
+        getContentPane().add(pantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -757,29 +781,30 @@ public class twitter extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Favor rellenar toda las casillas!");
         }else{
             try{
+                System.out.println("0");
 
                 //Condicional que valida si el usuario existe
                 if(!Usuario_Twitter.usuarioExiste(userTextField.getText(), file_Users)){
-
+                    System.out.println("1");
                     //Escribir los datos del registro en el archivo de usuarios
                     file_Users.seek(file_Users.length());
                     file_Users.writeUTF(userTextField.getText());
                     file_Users.writeChar(genero.charAt(0));
                     file_Users.writeUTF(nombreUsuarioText.getText());
                     file_Users.writeUTF(contraTextField.getText());
-
+System.out.println("2");
                     Date fecha = new Date();
                     file_Users.writeLong(fecha.getTime());
-
+System.out.println("3");
                     edad=Integer.parseInt(edadTextField.getText());
                     file_Users.writeInt(edad);
                     file_Users.writeBoolean(true);
-
+System.out.println("4");
                     if(pathSeleccionada.equals("")){
                         pathSeleccionada="src/images/userDefault0.png";
                         file_Users.writeUTF(pathSeleccionada);
                         System.out.println("Entra en icono default");
-
+System.out.println("5");
                         //Carpeta donde se se guardaran los usuarios
                         File ruta_usuario = new File("BDTWITEH/" + userTextField.getText());
 
@@ -792,7 +817,7 @@ public class twitter extends javax.swing.JInternalFrame {
                         File followers = new File(ruta_usuario.getPath() + "/followers.twc");
                         //Declaracion de los twits del usuario
                         File twits = new File(ruta_usuario.getPath() + "/twits.twc");
-
+System.out.println("6");
                         //Creacion del archivo seguidos
                         following.createNewFile();
                         //Creacion del archivo seguidores
@@ -806,7 +831,7 @@ public class twitter extends javax.swing.JInternalFrame {
 
                         //Funcion que deja los textfields y mas valores en 0 o vacio
                         vaciarCasillas();
-
+System.out.println("7");
                     }else{
                         file_Users.writeUTF(pathSeleccionada);
                         System.out.println("entra a icono personalizado");
@@ -850,16 +875,6 @@ public class twitter extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_RegistrarseBotonActionPerformed
 
-    private void botonFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFemeninoActionPerformed
-        genero="femenino";
-        contadorGenero++;
-    }//GEN-LAST:event_botonFemeninoActionPerformed
-
-    private void botonMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMasculinoActionPerformed
-        genero="masculino";
-        contadorGenero++;
-    }//GEN-LAST:event_botonMasculinoActionPerformed
-
     private void nombreUsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreUsuarioTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreUsuarioTextActionPerformed
@@ -883,31 +898,37 @@ public class twitter extends javax.swing.JInternalFrame {
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
         try{
             RandomAccessFile fu = new RandomAccessFile("BDTWITEH/usuarios.twc", "rw");
+            System.out.println("entro 1");
             if(Usuario_Twitter.usuarioExiste(userTextField1.getText(), fu)){
+                System.out.println("entro 1.3");
                 fu.readChar();
+                System.out.println("entro 1.4");
                 fu.readUTF();
+                 System.out.println("entro 2");
                 if(fu.readUTF().equals(contraTextField1.getText())){
                     Usuario_Twitter temporal= new Usuario_Twitter(userTextField1.getText());
                     usuarioLoggeado=userTextField1.getText();
-                    System.out.println("entra");
+                    System.out.println("entra3");
                     if(temporal.isActivo()){
                         System.out.println("pasa boolean");
                         Image img = new ImageIcon(temporal.getImg_path()).getImage();
                         ImageIcon miIcono = new ImageIcon(img.getScaledInstance(FPinicio.getWidth(), FPinicio.getHeight(), Image.SCALE_SMOOTH));
-
+                         System.out.println("entro 4");
                         pantallaInicio.setVisible(true);
                         jPanel1.setVisible(true);
                         timeline.setVisible(true);
                         showTwits.setVisible(true);
                         FPinicio.setIcon(miIcono);
                         nombreUser.setText(usuarioLoggeado);
-
+                         System.out.println("entro 5");
                         cantSeguidores.setText(""+temporal.getFollowers());
                         cantSeguidos.setText(""+temporal.getFollowings());
                         cargarTwits();
                         canttwits.setText(""+temporal.cantTwits());
                         principalLogin.setVisible(false);
+                         System.out.println("entro 7");
                     }else{
+                         System.out.println("entro 1.1");
                         JOptionPane.showMessageDialog(null, "Su cuenta ha sido reactivada.");
                         temporal.actUsuario();
                         Image img = new ImageIcon(temporal.getImg_path()).getImage();
@@ -929,9 +950,9 @@ public class twitter extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Usuario incorrecto o inexistente!");
             }
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error : "+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error ARCHIVO NO ENCONTRADO ");
         } catch (ExcepcionPropia e) {
-            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: 404");
         }
     }//GEN-LAST:event_botonIngresarActionPerformed
 
@@ -1052,10 +1073,27 @@ public class twitter extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_buscarHashActionPerformed
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        //Me manda el escritorio.
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    if(jComboBox1.getSelectedItem().toString().equals("masculino")){
+        genero="masculino";
+        contadorGenero++;
+    }else{
+        genero="femenino";
+        contadorGenero++;
+    }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    }//GEN-LAST:event_salirActionPerformed
+    private void userTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userTextField1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTextField1FocusGained
+
+    private void userTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userTextField1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTextField1FocusLost
+
+    private void baaackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baaackActionPerformed
+        logOutActionPerformed(evt);
+    }//GEN-LAST:event_baaackActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
         pantallaInicio.setVisible(false);
@@ -1074,6 +1112,22 @@ public class twitter extends javax.swing.JInternalFrame {
         principalLogin.setVisible(true);
     }//GEN-LAST:event_logOutActionPerformed
 
+    private void editPerfilBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPerfilBotonActionPerformed
+        editPerfil.setVisible(true);
+        timeline.setVisible(false);
+        hashtag.setVisible(false);
+        interacciones.setVisible(false);
+    }//GEN-LAST:event_editPerfilBotonActionPerformed
+
+    private void botonInteraccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInteraccionesActionPerformed
+        hashtag.setVisible(false);
+        timeline.setVisible(false);
+        editPerfil.setVisible(false);
+        userInteraccion.setText(usuarioLoggeado);
+        cargarInteracciones();
+        interacciones.setVisible(true);
+    }//GEN-LAST:event_botonInteraccionesActionPerformed
+
     private void botonHashTagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonHashTagActionPerformed
         hashtag.setVisible(true);
         timeline.setVisible(false);
@@ -1087,22 +1141,6 @@ public class twitter extends javax.swing.JInternalFrame {
         interacciones.setVisible(false);
         editPerfil.setVisible(false);
     }//GEN-LAST:event_botonTimeLineActionPerformed
-
-    private void botonInteraccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInteraccionesActionPerformed
-        hashtag.setVisible(false);
-        timeline.setVisible(false);
-        editPerfil.setVisible(false);
-        userInteraccion.setText(usuarioLoggeado);
-        cargarInteracciones();
-        interacciones.setVisible(true);
-    }//GEN-LAST:event_botonInteraccionesActionPerformed
-
-    private void editPerfilBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPerfilBotonActionPerformed
-        editPerfil.setVisible(true);
-        timeline.setVisible(false);
-        hashtag.setVisible(false);
-        interacciones.setVisible(false);
-    }//GEN-LAST:event_editPerfilBotonActionPerformed
 public void vaciarCasillas(){
         //Agarra la imagen default
         Image img = new ImageIcon("src/images/userDefault0.png ").getImage();
@@ -1128,7 +1166,7 @@ public void vaciarCasillas(){
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("png & jpg","png","jpg");
             
             //Pone por default donde aparecera el FileChooser. (Yo lo puse en imagenes porque si te metes a "redes" que tiene tu compu entonces se congela el programa)
-            fileChooser.setCurrentDirectory(new File("C:\\Users\\andre\\Pictures"));
+            fileChooser.setCurrentDirectory(new File("Z/"+Menu.MenuPrincipal.nombreIngresado));
             //Pone el filtro
             fileChooser.setFileFilter(filtro);
             
@@ -1409,12 +1447,11 @@ public void vaciarCasillas(){
     private javax.swing.JButton RegistrarseBoton;
     private javax.swing.JLabel Titulo_CrearUsuarioLabel;
     private javax.swing.JLabel Titulo_InicioSesionLabel;
+    private javax.swing.JButton baaack;
     private javax.swing.JButton botonEnviar;
-    private javax.swing.JButton botonFemenino;
     private javax.swing.JButton botonHashTag;
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonInteracciones;
-    private javax.swing.JButton botonMasculino;
     private javax.swing.JButton botonTimeLine;
     private javax.swing.JButton buscarHash;
     private javax.swing.JTextField buscarTextField;
@@ -1445,6 +1482,7 @@ public void vaciarCasillas(){
     private javax.swing.JScrollPane interaccionesText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1453,6 +1491,7 @@ public void vaciarCasillas(){
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelSeguidores;
     private javax.swing.JLabel labelSeguidos;
@@ -1465,7 +1504,6 @@ public void vaciarCasillas(){
     private javax.swing.JPanel principalLogin;
     private javax.swing.JLabel profilePicture;
     private javax.swing.JPanel registro;
-    private javax.swing.JButton salir;
     private javax.swing.JButton searchBoton;
     private javax.swing.JLabel seguidoONo;
     private javax.swing.JButton seleccionarImagenBoton;

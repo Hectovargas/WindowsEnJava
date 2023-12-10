@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package zzztwita;
 
 /**
@@ -53,9 +49,9 @@ public class Usuario_Twitter {
             this.activo = file_Users.readBoolean();
             this.img_path = file_Users.readUTF();
             
-            file_Followers = new RandomAccessFile("RedRetro/" + user+"/followers.twc", "rw");
-            file_Following = new RandomAccessFile("RedRetro/" + user+"/followings.twc", "rw");
-            file_Twits = new RandomAccessFile("RedRetro/" + user+"/twits.twc", "rw");
+            file_Followers = new RandomAccessFile("BDTWITEH/" + user+"/followers.twc", "rw");
+            file_Following = new RandomAccessFile("BDTWITEH/" + user+"/followings.twc", "rw");
+            file_Twits = new RandomAccessFile("BDTWITEH/" + user+"/twits.twc", "rw");
 
         }else{
             throw new ExcepcionPropia();
@@ -410,7 +406,7 @@ public class Usuario_Twitter {
     }
     
     public void seguirAndAddFollow(String persona) throws IOException, ExcepcionPropia{
-        RandomAccessFile userFile = new RandomAccessFile("RedRetro/"+persona+"/followers.twc","rw");
+        RandomAccessFile userFile = new RandomAccessFile("BDTWITEH/"+persona+"/followers.twc","rw");
         boolean yaSigue=false;
         userFile.seek(0);
         while(userFile.getFilePointer()<userFile.length()){
