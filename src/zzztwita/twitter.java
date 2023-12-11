@@ -1103,7 +1103,14 @@ public class twitter extends javax.swing.JInternalFrame {
         try {
             Usuario_Twitter temporal = new Usuario_Twitter(usuarioLoggeado);
             temporal.dejarDeSeguir(userVerPerfil.getText());
-            seguidoONo.setText("No lo sigo");
+            if("Lo Sigo!".equals(seguidoONo.getText())){
+            int x = Integer.parseInt(labelSeguidores.getText())-1;
+            labelSeguidores.setText(""+x);
+            seguidoONo.setText("No lo Sigo!");
+        }else{
+                JOptionPane.showMessageDialog(this, "no puedes dejar de seguir a alguien que no sigues");
+            }
+            
         } catch (IOException | ExcepcionPropia ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
         }
@@ -1113,7 +1120,13 @@ public class twitter extends javax.swing.JInternalFrame {
         try {
             Usuario_Twitter temporal = new Usuario_Twitter(usuarioLoggeado);
             temporal.seguirAndAddFollow(userVerPerfil.getText());
-            seguidoONo.setText("Lo sigo");
+            if("No lo Sigo!".equals(seguidoONo.getText())){
+            int x = Integer.parseInt(labelSeguidores.getText())+1;
+            labelSeguidores.setText(""+x);
+            seguidoONo.setText("Lo sigo!");
+        }else{
+                JOptionPane.showMessageDialog(this, "no puedes seguir a alguien que sigues");
+            }
         } catch (IOException | ExcepcionPropia ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
         }
