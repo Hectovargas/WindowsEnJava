@@ -237,7 +237,7 @@ public class editorDeTexto extends javax.swing.JInternalFrame {
         if (tipo.equals("Administrador")) {
             jfc.setCurrentDirectory(new File("Z"));
         } else {
-            jfc.setCurrentDirectory(new File("Z/" + nombre));
+            jfc.setCurrentDirectory(new File("Z/"+Menu.MenuPrincipal.nombreIngresado));
         }
         FileNameExtensionFilter filtro
                 = new FileNameExtensionFilter(
@@ -283,7 +283,7 @@ public class editorDeTexto extends javax.swing.JInternalFrame {
             if (tipo.equals("Administrador")) {
                 jfc.setCurrentDirectory(new File("Z"));
             } else {
-                jfc.setCurrentDirectory(new File("Z/" + nombre));
+                jfc.setCurrentDirectory(new File("Z/"+Menu.MenuPrincipal.nombreIngresado));
             }
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("text file", "txt");
             jfc.setFileFilter(filtro);

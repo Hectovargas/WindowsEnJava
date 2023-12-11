@@ -55,7 +55,7 @@ public class NavegadorDeArchivos extends javax.swing.JInternalFrame  {
                 }
             }
         });
-        copyItem.setAction(new AbstractAction("pegar") {
+        copyItem.setAction(new AbstractAction("Copiar") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 file = (File) jTree1.getLastSelectedPathComponent();

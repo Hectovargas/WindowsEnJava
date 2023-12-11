@@ -373,7 +373,7 @@ public class Usuario_Twitter {
             return sigo;
     }
     
-    public void dejarDeSeguir(String usuario) throws IOException, ExcepcionPropia{
+   public void dejarDeSeguir(String usuario) throws IOException, ExcepcionPropia{
         Usuario_Twitter selectUsr = new Usuario_Twitter(usuario);
         RandomAccessFile userFollowers =selectUsr.file_Followers;
             file_Following.seek(0);
@@ -382,7 +382,7 @@ public class Usuario_Twitter {
             while (file_Following.getFilePointer() < file_Following.length()) { 
                 //Lee el usuario loggeado
                 String user = file_Following.readUTF();
-                //validacion para saber si el usuario loggeado ya lo sigue
+                //validacion para saber si es el user loggeado
                 if(user.equals(usuario)){
                     file_Following.writeBoolean(false);
                     JOptionPane.showMessageDialog(null, "Se ha dejado de seguir!");
@@ -401,6 +401,7 @@ public class Usuario_Twitter {
                     }
                     break;
                 }
+                file_Following.readBoolean();
             }
         
     }
@@ -409,14 +410,35 @@ public class Usuario_Twitter {
         RandomAccessFile userFile = new RandomAccessFile("BDTWITEH/"+persona+"/followers.twc","rw");
         boolean yaSigue=false;
         userFile.seek(0);
+        
+        //Recorre el archivo del usuario a seguir
         while(userFile.getFilePointer()<userFile.length()){
-            userFile.readUTF();
-            if(userFile.readBoolean()){
+            //Lee nombre
+            String user = userFile.readUTF();
+            long puntero = userFile.getFilePointer();
+            boolean seguido = userFile.readBoolean();
+            //Condicional para saber si lo sigo o no
+            if(user.equals(this.user) && seguido){
                 JOptionPane.showMessageDialog(null, "Ya haz seguido a este usuario!");
-                yaSigue=userFile.readBoolean();
-                break;
+                yaSigue=true;
+            }else if(user.equals(this.user) && !seguido){
+                //Se actualiza y lo sigue de nuevo
+                userFile.seek(puntero);
+                userFile.writeBoolean(true);
+                yaSigue=true;
+                file_Following.seek(0);
+                while(file_Following.getFilePointer()<file_Following.length()){
+                    String userz = file_Following.readUTF();
+                    long punteroz = file_Following.getFilePointer();
+                    file_Following.readBoolean();
+                    if(userz.equals(persona)){
+                        file_Following.seek(punteroz);
+                        file_Following.writeBoolean(true);
+                    }       
+                }
+                JOptionPane.showMessageDialog(null, "Se ha seguido al usuario!");
             }
-            userFile.readBoolean();
+                
         }
         
         if(!yaSigue){
