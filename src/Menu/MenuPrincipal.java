@@ -475,8 +475,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         principal cmd = new principal();
-        principal.nombre = MenuPrincipal.nombreIngresado;
-        principal.tipo = this.tipoIngresado;
         Escritorio.add(cmd);
         cmd.show();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -525,8 +523,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         principal cmd = new principal();
-        principal.nombre = MenuPrincipal.nombreIngresado;
-        principal.tipo = this.tipoIngresado;
         Escritorio.add(cmd);
         cmd.show();    // TODO add your handling code here:
     }//GEN-LAST:event_jButton15ActionPerformed

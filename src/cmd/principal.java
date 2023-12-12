@@ -9,9 +9,8 @@ import java.util.Date;
 
 public class principal extends javax.swing.JInternalFrame {
 
-    public static String tipo;
-    public static String nombre;
-    File carpetainicial = new File(System.getProperty("user.dir"));
+    String names = Menu.MenuPrincipal.nombreIngresado;
+    File carpetainicial = new File(System.getProperty("user.dir")+"/Z/"+names);
     String carpetaAct=carpetainicial.getAbsolutePath();
     public principal() {
         initComponents();

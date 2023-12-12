@@ -441,7 +441,6 @@ public class twitter extends javax.swing.JInternalFrame {
 
         contenido.setBackground(new java.awt.Color(51, 204, 255));
         contenido.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 204)));
-        contenido.setLayout(new javax.swing.BoxLayout(contenido, javax.swing.BoxLayout.Y_AXIS));
         showTwits.setViewportView(contenido);
 
         timeline.add(showTwits, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 760, 570));
@@ -457,7 +456,6 @@ public class twitter extends javax.swing.JInternalFrame {
         perfilUser.add(fotoVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 170));
 
         contenidoVerPerfil.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 255, 204)));
-        contenidoVerPerfil.setLayout(new javax.swing.BoxLayout(contenidoVerPerfil, javax.swing.BoxLayout.Y_AXIS));
         twitsVerPerfil.setViewportView(contenidoVerPerfil);
 
         perfilUser.add(twitsVerPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 780, 300));
@@ -720,7 +718,6 @@ public class twitter extends javax.swing.JInternalFrame {
 
         content.setBackground(new java.awt.Color(0, 0, 0));
         content.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(51, 255, 204)));
-        content.setLayout(new javax.swing.BoxLayout(content, javax.swing.BoxLayout.Y_AXIS));
         hashText.setViewportView(content);
 
         hashtag.add(hashText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 760, 550));
@@ -870,7 +867,7 @@ public class twitter extends javax.swing.JInternalFrame {
 
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
         String mensaje = twit.getText();
-        if(mensaje.isBlank()){
+        if (mensaje.isBlank()) {
             JOptionPane.showMessageDialog(this, "No puede enviar un mensaje vacio");
             return;
         }
@@ -1103,14 +1100,17 @@ public class twitter extends javax.swing.JInternalFrame {
         try {
             Usuario_Twitter temporal = new Usuario_Twitter(usuarioLoggeado);
             temporal.dejarDeSeguir(userVerPerfil.getText());
-            if("Lo Sigo!".equals(seguidoONo.getText())){
-            int x = Integer.parseInt(labelSeguidores.getText())-1;
-            labelSeguidores.setText(""+x);
-            seguidoONo.setText("No lo Sigo!");
-        }else{
-                JOptionPane.showMessageDialog(this, "no puedes dejar de seguir a alguien que no sigues");
-            }
-            
+            cantSeguidores.setText(temporal.getFollowers()+"");
+            cantSeguidos.setText(temporal.getFollowings()+"");
+            cantSeguidores.setVisible(false);
+            cantSeguidores.setVisible(true);
+            cantSeguidos.setVisible(false);
+            cantSeguidos.setVisible(true);
+            String name = jList1.getSelectedValue();
+            Usuario_Twitter temporal2 = new Usuario_Twitter(name);
+            labelSeguidores.setText(temporal2.getFollowers() + "");
+            labelSeguidores.setVisible(false);
+            labelSeguidores.setVisible(true);
         } catch (IOException | ExcepcionPropia ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
         }
@@ -1118,17 +1118,27 @@ public class twitter extends javax.swing.JInternalFrame {
 
     private void followBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_followBotonActionPerformed
         try {
+            
             Usuario_Twitter temporal = new Usuario_Twitter(usuarioLoggeado);
             temporal.seguirAndAddFollow(userVerPerfil.getText());
-            if("No lo Sigo!".equals(seguidoONo.getText())){
-            int x = Integer.parseInt(labelSeguidores.getText())+1;
-            labelSeguidores.setText(""+x);
-            seguidoONo.setText("Lo sigo!");
-        }else{
-                JOptionPane.showMessageDialog(this, "no puedes seguir a alguien que sigues");
-            }
-        } catch (IOException | ExcepcionPropia ex) {
+            cantSeguidores.setText(temporal.getFollowers()+"");
+            cantSeguidos.setText(temporal.getFollowings()+"");
+            cantSeguidores.setVisible(false);
+            cantSeguidores.setVisible(true);
+            cantSeguidos.setVisible(false);
+            cantSeguidos.setVisible(true);
+            String name = jList1.getSelectedValue();
+            Usuario_Twitter temporal2 = new Usuario_Twitter(name);
+            labelSeguidores.setText(temporal2.getFollowers() + "");
+            labelSeguidores.setVisible(false);
+            labelSeguidores.setVisible(true);
+
+        } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
+        }
+        catch (ExcepcionPropia ex){
+            JOptionPane.showConfirmDialog(null, ex.getCause().toString());
+        
         }
     }//GEN-LAST:event_followBotonActionPerformed
 
@@ -1234,7 +1244,9 @@ public class twitter extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_userTextField1FocusLost
 
     private void baaackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baaackActionPerformed
-        logOutActionPerformed(evt);
+        principalLogin.setVisible(true);
+        registro.setVisible(false);
+        vaciarCasillas();
     }//GEN-LAST:event_baaackActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
@@ -1480,44 +1492,44 @@ public class twitter extends javax.swing.JInternalFrame {
 //        }
 //    }
     private DefaultListModel<String> listModel = new DefaultListModel<>();
-    
-   private void displayUsers(ArrayList<String> users) throws IOException, ExcepcionPropia {
-    Usuario_Twitter logged = new Usuario_Twitter(usuarioLoggeado);
-    listModel.clear(); // Limpiar el modelo antes de agregar nuevos elementos
 
-    for (String user : users) {
-        listModel.addElement(user);
-    }
+    private void displayUsers(ArrayList<String> users) throws IOException, ExcepcionPropia {
+        Usuario_Twitter logged = new Usuario_Twitter(usuarioLoggeado);
+        listModel.clear(); // Limpiar el modelo antes de agregar nuevos elementos
 
-    jList1.setModel(listModel);
-    jList1.addListSelectionListener(e -> {
-        // Este código se ejecutará cuando se seleccione un elemento en el JList
-        String selectedUser = jList1.getSelectedValue();
-        if (selectedUser != null) {
-            perfilUser.setVisible(true);
-            jList1.removeAll();
-            buscarTextField.setText("");
-            try {
-                Usuario_Twitter temporal = new Usuario_Twitter(selectedUser);
-                Image image1 = new ImageIcon(temporal.getImg_path()).getImage();
-                ImageIcon miIcono = new ImageIcon(image1.getScaledInstance(fotoVerPerfil.getWidth(), fotoVerPerfil.getHeight(), Image.SCALE_SMOOTH));
-                fotoVerPerfil.setIcon(miIcono);
-                userVerPerfil.setText(temporal.getUser());
-                editPerfil.setVisible(false);
-                labelSeguidores.setText("" + temporal.getFollowers());
-                labelSeguidos.setText("" + temporal.getFollowings());
-                nombreVerPerfil1.setText(temporal.getNombre());
-                if (logged.loSigo(temporal.getUser())) {
-                    seguidoONo.setText("Lo Sigo!");
-                } else {
-                    seguidoONo.setText("No lo Sigo!");
-                }
-            } catch (IOException | ExcepcionPropia ex) {
-                JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
-            }
+        for (String user : users) {
+            listModel.addElement(user);
         }
-    });
-}
+
+        jList1.setModel(listModel);
+        jList1.addListSelectionListener(e -> {
+            // Este código se ejecutará cuando se seleccione un elemento en el JList
+            String selectedUser = jList1.getSelectedValue();
+            if (selectedUser != null) {
+                perfilUser.setVisible(true);
+                jList1.removeAll();
+                buscarTextField.setText("");
+                try {
+                    Usuario_Twitter temporal = new Usuario_Twitter(selectedUser);
+                    Image image1 = new ImageIcon(temporal.getImg_path()).getImage();
+                    ImageIcon miIcono = new ImageIcon(image1.getScaledInstance(fotoVerPerfil.getWidth(), fotoVerPerfil.getHeight(), Image.SCALE_SMOOTH));
+                    fotoVerPerfil.setIcon(miIcono);
+                    userVerPerfil.setText(temporal.getUser());
+                    editPerfil.setVisible(false);
+                    labelSeguidores.setText("" + temporal.getFollowers());
+                    labelSeguidos.setText("" + temporal.getFollowings());
+                    nombreVerPerfil1.setText(temporal.getNombre());
+                    if (logged.loSigo(temporal.getUser())) {
+                        seguidoONo.setText("Lo Sigo!");
+                    } else {
+                        seguidoONo.setText("No lo Sigo!");
+                    }
+                } catch (IOException | ExcepcionPropia ex) {
+                    JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + ex.getMessage());
+                }
+            }
+        });
+    }
 
     private void cargarTwits() throws IOException, ExcepcionPropia {
         contenido.removeAll();
