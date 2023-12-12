@@ -157,16 +157,15 @@ public class InicioDeSistema extends javax.swing.JFrame {
                 menu.tipoIngresado = tipo;
                 txtUsuario.setText("");
                 Contraseñafiel.setText("");
-
+                
             } else {
-
+                
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
                 txtUsuario.setText("");
                 Contraseñafiel.setText("");
-
+                
             }
-
-        } catch (IOException ex) {
+        } catch (excepcionUsuario ex) {
             Logger.getLogger(InicioDeSistema.class.getName()).log(Level.SEVERE, null, ex);
         }                      
     }//GEN-LAST:event_btnIngresarActionPerformed

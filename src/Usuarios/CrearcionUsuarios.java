@@ -1,6 +1,6 @@
 package Usuarios;
 
-import java.io.IOException;
+import Menu.excepcionUsuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -122,18 +122,17 @@ public class CrearcionUsuarios extends javax.swing.JInternalFrame {
         String contra = Contranueva.getText();
         String tipo = Tipo.getSelectedItem().toString();
         try {
-              if(user.buscarUsuario(nombre)){
-              JOptionPane.showMessageDialog(this, "El usuario ingresado ya existe");
-              }else{
-            user.CrearCarpetasUser(nombre, contra, tipo);
-            JOptionPane.showMessageDialog(this, "Usuario registrado correctamente - La persona registrada es tipo: "+tipo);
-            nombrenuevo.setText("");
-            Contranueva.setText("");
-            this.dispose();
-              }
-        } catch (IOException ex) {
+            if(user.buscarUsuario(nombre)){
+                JOptionPane.showMessageDialog(this, "El usuario ingresado ya existe");
+            }else{
+                user.CrearCarpetasUser(nombre, contra, tipo);
+                JOptionPane.showMessageDialog(this, "Usuario registrado correctamente - La persona registrada es tipo: "+tipo);
+                nombrenuevo.setText("");
+                Contranueva.setText("");
+                this.dispose();
+            }
+        } catch (excepcionUsuario ex) {
             Logger.getLogger(CrearcionUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error: "+ex);
         }
         
     }//GEN-LAST:event_BotonRegistrarActionPerformed
