@@ -25,6 +25,7 @@ public class NavegadorDeArchivos extends javax.swing.JInternalFrame  {
         System.out.println("Directorio" + System.getProperty("user.dir"));
         
         initComponents();
+        jTextArea1.setEditable(false);
         but.add(jRadioButton1);
         but.add(jRadioButton2);
         but.add(jRadioButton4);

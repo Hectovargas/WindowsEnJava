@@ -99,7 +99,7 @@ public class VisorDeImagenes extends javax.swing.JInternalFrame {
             }
         } catch (Exception e) {
             try {
-                throw new excepcionUsuario("Error al avanzar a la siguiente imagen.");
+                throw new excepcionUsuario("Error al retroceder de imagen.");
             } catch (excepcionUsuario ex) {
 
             }
