@@ -10,7 +10,7 @@ import java.util.Date;
 public class principal extends javax.swing.JInternalFrame {
 
     File carpetainicial = new File(System.getProperty("user.dir"));
-    String carpetaAct=carpetainicial.getAbsolutePath();
+    String carpetaAct=carpetainicial.getAbsolutePath()+"/Z/"+Menu.MenuPrincipal.nombreIngresado;
     public principal() {
         initComponents();
         jTextArea1.append("Carpeta actual: "+carpetaAct);
@@ -110,7 +110,7 @@ public class principal extends javax.swing.JInternalFrame {
             String command = jTextField1.getText();
             String[] tokens = command.split(" ");
             jTextArea1.append("\n"+carpetaAct+">"+tokens[0]);
-            File carpetaActual = new File(System.getProperty("user.dir"));
+            File carpetaActual = new File(carpetaAct);
 
             switch (tokens[0]) {
                 case "mkdir":

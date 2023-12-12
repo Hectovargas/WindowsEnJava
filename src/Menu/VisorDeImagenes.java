@@ -2,7 +2,6 @@ package Menu;
 
 import javax.swing.ImageIcon;
 import java.io.File;
-import javax.swing.JOptionPane;
 
 public class VisorDeImagenes extends javax.swing.JInternalFrame {
 
@@ -10,10 +9,9 @@ public class VisorDeImagenes extends javax.swing.JInternalFrame {
     private int Pos;
 
     public VisorDeImagenes() {
-        
+
         initComponents();
-        
-        this.setTitle("Mis Imagenes");
+
         File imageFolder = new File("Z/" + MenuPrincipal.nombreIngresado + "/Mis Imagenes");
 
         ImgArray = imageFolder.listFiles();
@@ -21,8 +19,6 @@ public class VisorDeImagenes extends javax.swing.JInternalFrame {
         if (ImgArray != null && ImgArray.length > 0) {
             Pos = 0;
             ImageIcon Imagen = new ImageIcon(ImgArray[Pos].getPath());
-           
-        } else {
         }
 
     }
@@ -73,37 +69,45 @@ public class VisorDeImagenes extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void derechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_derechaActionPerformed
-     if(ImgArray.length>0){
-        Pos++;
-        if (Pos >= ImgArray.length) {
-            Pos = 0;
+        try {
+            if (ImgArray.length > 0) {
+                Pos++;
+                if (Pos >= ImgArray.length) {
+                    Pos = 0;
+                }
+                ImageIcon newIcon = new ImageIcon(ImgArray[Pos].getPath());
+                CuadroImagenes.setIcon(newIcon);
+            }
+        } catch (Exception e) {
+            try {
+                throw new excepcionUsuario("Error al avanzar a la siguiente imagen.");
+            } catch (excepcionUsuario ex) {
+
+            }
         }
-        ImageIcon newIcon = new ImageIcon(ImgArray[Pos].getPath());
-        CuadroImagenes.setIcon(newIcon);
-       }
     }//GEN-LAST:event_derechaActionPerformed
 
     private void IzuierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IzuierdaActionPerformed
-        if(ImgArray.length>0){
-        Pos--;
-        if (Pos < 0) {
-            Pos = ImgArray.length - 1;
+        try {
+            if (ImgArray.length > 0) {
+                Pos--;
+                if (Pos < 0) {
+                    Pos = ImgArray.length - 1;
+                }
+                ImageIcon newIcon = new ImageIcon(ImgArray[Pos].getPath());
+                CuadroImagenes.setIcon(newIcon);
+            }
+        } catch (Exception e) {
+            try {
+                throw new excepcionUsuario("Error al avanzar a la siguiente imagen.");
+            } catch (excepcionUsuario ex) {
+
+            }
         }
-        ImageIcon newIcon = new ImageIcon(ImgArray[Pos].getPath());
-        CuadroImagenes.setIcon(newIcon);
-        }
-       
     }//GEN-LAST:event_IzuierdaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -124,11 +128,8 @@ public class VisorDeImagenes extends javax.swing.JInternalFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new VisorDeImagenes().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new VisorDeImagenes().setVisible(true);
         });
     }
 
